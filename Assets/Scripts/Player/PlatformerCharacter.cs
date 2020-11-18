@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [RequireComponent(typeof(Rigidbody2D))]
-[RequireComponent(typeof(BoxCollider2D))]
+[RequireComponent(typeof(CapsuleCollider2D))]
 [RequireComponent(typeof(Animator))]
 public class PlatformerCharacter : MonoBehaviour
 {
@@ -49,7 +49,7 @@ public class PlatformerCharacter : MonoBehaviour
 
     // --- Private Components ---
     private Rigidbody2D _rb;
-    private BoxCollider2D _bc;
+    private CapsuleCollider2D _bc;
     private Animator _anim;
 
     // --- Derived cache ---
@@ -147,7 +147,7 @@ public class PlatformerCharacter : MonoBehaviour
         {
             Debug.Log("Ladder Lost");
             _onLadder = false;
-            _rb.gravityScale = _GravityModifierFalling;
+            _rb.gravityScale = _jumpGravityScale * _GravityModifierFalling;
         }
     }
 
@@ -157,7 +157,7 @@ public class PlatformerCharacter : MonoBehaviour
         // -- Get Components --
         _rb = GetComponent<Rigidbody2D>();
         _anim = GetComponent<Animator>();
-        _bc = GetComponent<BoxCollider2D>();
+        _bc = GetComponent<CapsuleCollider2D>();
 
         // --- Cache Values ---
         _jumpGravityScale = CalculateGravity(_JumpHeight, _TimeToPeak);

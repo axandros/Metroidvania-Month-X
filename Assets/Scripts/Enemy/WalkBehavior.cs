@@ -3,11 +3,11 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [RequireComponent(typeof(Rigidbody2D))]
-[RequireComponent(typeof(BoxCollider2D))]
+[RequireComponent(typeof(CapsuleCollider2D))]
 public class WalkBehavior : MonoBehaviour
 {
     private Rigidbody2D rb;
-    private BoxCollider2D bc;
+    private CapsuleCollider2D bc;
 
     [SerializeField]
     private LayerMask GroundLayer;
@@ -28,7 +28,7 @@ public class WalkBehavior : MonoBehaviour
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
-        bc = GetComponent<BoxCollider2D>();
+        bc = GetComponent<CapsuleCollider2D>();
     }
 
     private void Update()
