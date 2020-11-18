@@ -107,13 +107,13 @@ public class PlatformerCharacter : MonoBehaviour
     private void Flip()
     {
         _facingRight = !_facingRight;
-        transform.Rotate(new Vector3(0, 180, 9));
+        transform.Rotate(new Vector3(0, 180,0));
     }
     private void Jump()
     {
         _rb.velocity = new Vector2(_rb.velocity.x, _jumpUpVelocity);
 
-        //_anim.SetFloat("IsInAir", Mathf.Abs(_movementInput));
+        _anim.SetFloat("InAir", Mathf.Abs(_movementInput));
     }
     public void Knockback(Transform damageSource)
     {
@@ -166,6 +166,7 @@ public class PlatformerCharacter : MonoBehaviour
         float vy = CalculateVerticalVelocity(_KnockbackHeight, vx, _KnockbackDistance / 2);
         _knockbackInitialVelocity = new Vector2(vx, vy);
         _knockbackInitialGravity = CalculateGravity(_KnockbackHeight, vx, _KnockbackDistance / 2);
+        _rb.gravityScale = _GravityModifierFalling * _jumpGravityScale;
     }
 
 
