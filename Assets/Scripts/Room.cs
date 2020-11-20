@@ -10,6 +10,8 @@ public class Room : MonoBehaviour
 
     CameraFollow _camFollow;
 
+    List<EnemyHealth> _enemiesInRoom;
+
     public Vector2 Extents { get { return _Extents; } }
 
     private BoxCollider2D _roomCollider;
@@ -20,6 +22,20 @@ public class Room : MonoBehaviour
         _roomCollider = GetComponent<BoxCollider2D>();
         _roomCollider.size = _Extents;
         _camFollow = Camera.main.GetComponent<CameraFollow>();
+        _enemiesInRoom = new List<EnemyHealth>();
+
+        List<Collider2D> allObjectInRoom = new List<Collider2D>();
+        ContactFilter2D contact = new ContactFilter2D();
+        contact.NoFilter();
+        _roomCollider.OverlapCollider( contact,allObjectInRoom);
+        foreach(Collider2D c in allObjectInRoom)
+        {
+            EnemyHealth eh = c.gameObject.GetComponent<EnemyHealth>();
+            if (eh)
+            {
+
+            }
+        }
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
