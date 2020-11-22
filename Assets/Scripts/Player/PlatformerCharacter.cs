@@ -60,6 +60,7 @@ public class PlatformerCharacter : MonoBehaviour
 
     // --- State Variables ---
 
+    
     private float _lastJumpTime = 0;
     private float _lastKnockbackTime = 0;
     private float _lateralKnockbackVelocity = 0;
@@ -73,10 +74,12 @@ public class PlatformerCharacter : MonoBehaviour
     private bool _hasJumped = false;
     private bool _jumpPressed = false;
     private bool _jumpHeld = false;
-    
-
 
     // ===== FUNCTIONS ====
+
+    // --- Getters ---
+    public bool FacingRight { get { return _facingRight; } }
+
     // --- Queries ---
     bool IsGrounded()
     {
@@ -204,6 +207,7 @@ public class PlatformerCharacter : MonoBehaviour
         _verticalInput = Input.GetAxisRaw("Vertical");
         _jumpPressed = Input.GetButtonDown("Jump");
         _grounded = IsGrounded();
+        if(_jumpHeld && Input.GetButton("Jump")) { _jumpHeld = false; }
     }
 
     void UpdateJump()

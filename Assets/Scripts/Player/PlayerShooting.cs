@@ -15,12 +15,6 @@ public class PlayerShooting : MonoBehaviour
 
     private float _lastShotTime = 0;
 
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
     // Update is called once per frame
     void Update()
     {
@@ -40,7 +34,7 @@ public class PlayerShooting : MonoBehaviour
         Rigidbody2D rb = go.GetComponent<Rigidbody2D>();
         if (rb)
         {
-            int direction = this.transform.localScale.x >= 0 ? 1 : -1;
+            int direction = _SpawnOffset.transform.position.x > this.transform.position.x ? 1 : -1;
             rb.velocity = new Vector2(direction*_BulletSpeed, 0);
         }
     }

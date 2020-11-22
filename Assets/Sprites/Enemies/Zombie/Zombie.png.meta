@@ -4,13 +4,28 @@ TextureImporter:
   internalIDToNameTable:
   - first:
       213: 6019453725058403666
-    second: Zombie_0
+    second: Zombie_WalkRight
   - first:
       213: -2485871483528494817
-    second: Zombie_1
+    second: Zombie_WalkMid
   - first:
       213: 6284166523789267160
-    second: Zombie_2
+    second: Zombie_WalkLeft
+  - first:
+      213: 3594130539849031147
+    second: Zombie_WalkRight
+  - first:
+      213: -1299701271111816480
+    second: Zombie_WalkMid
+  - first:
+      213: 6512359857180690375
+    second: Zombie_WalkLeft
+  - first:
+      213: -8585762769051335824
+    second: Zombie_Dying
+  - first:
+      213: -980516788960830398
+    second: Zombie_Empty
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -122,7 +137,70 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Zombie_0
+      name: Zombie_WalkRight
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 32
+        width: 24
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bed9518feaae0e130800000000000000
+      internalID: 3594130539849031147
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Zombie_WalkMid
+      rect:
+        serializedVersion: 2
+        x: 24
+        y: 32
+        width: 24
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0eaa14d749886fde0800000000000000
+      internalID: -1299701271111816480
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Zombie_WalkLeft
+      rect:
+        serializedVersion: 2
+        x: 48
+        y: 32
+        width: 24
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7c7c4c049cc806a50800000000000000
+      internalID: 6512359857180690375
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Zombie_Dying
       rect:
         serializedVersion: 2
         x: 0
@@ -130,20 +208,20 @@ TextureImporter:
         width: 24
         height: 32
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 25d02004545698350800000000000000
-      internalID: 6019453725058403666
+      spriteID: 073cbe8304e39d880800000000000000
+      internalID: -8585762769051335824
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Zombie_1
+      name: Zombie_Empty
       rect:
         serializedVersion: 2
         x: 24
@@ -151,35 +229,14 @@ TextureImporter:
         width: 24
         height: 32
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: f11c2037e09608dd0800000000000000
-      internalID: -2485871483528494817
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Zombie_2
-      rect:
-        serializedVersion: 2
-        x: 48
-        y: 0
-        width: 24
-        height: 32
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 8d05cdf8828d53750800000000000000
-      internalID: 6284166523789267160
+      spriteID: 24cdea9ec218462f0800000000000000
+      internalID: -980516788960830398
       vertices: []
       indices: 
       edges: []

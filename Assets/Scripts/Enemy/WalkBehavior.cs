@@ -4,11 +4,13 @@ using UnityEngine;
 
 [RequireComponent(typeof(Rigidbody2D))]
 [RequireComponent(typeof(CapsuleCollider2D))]
+[RequireComponent(typeof(EnemyHealth))]
 public class WalkBehavior : MonoBehaviour
 {
     private Rigidbody2D rb;
     private CapsuleCollider2D bc;
-
+    [SerializeField]
+    private LayerMask _RoomLayer;
     [SerializeField]
     private LayerMask _GroundLayer;
     [SerializeField]
@@ -27,30 +29,59 @@ public class WalkBehavior : MonoBehaviour
     private float _lastFlipTime;
     private float _flipCooldown = 1.0f;
 
+    EnemyHealth _eh;
+    private Room RoomAssigned { get {
+            if (_eh)
+            {
+                return _eh.RoomAssigned;
+            }
+            return null; 
+        } }
+
     // Start is called before the first frame update
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
         bc = GetComponent<CapsuleCollider2D>();
+        _eh = GetComponent<EnemyHealth>();
+        _eh.OnActiveChange += OnActiveChange;
         _facingRight = _StartFacingLeft;
+    }
+
+    private void OnActiveChange(bool setActive)
+    {
+        if (setActive)
+        {
+
+        }
+        else
+        {
+            rb.velocity = Vector2.zero;   
+        }
+        bc.enabled = setActive;
     }
 
     private void Update()
     {
-        IsGrounded();
-        if (!LeftFootCheck ^ !RightFootCheck || CheckforWalls()) // ^ is exclusive OR, or XOR
+        if (_eh.Active)
         {
-            Flip();
+            IsGrounded();
+            if (!LeftFootCheck ^ !RightFootCheck || CheckforWalls() || !CheckIsInRoom()) // ^ is exclusive OR, or XOR
+            {
+                Flip();
+            }
         }
     }
 
     // Update is called once per frame
     void FixedUpdate()
     {
-
-        Vector2 movement = new Vector2(_MoveSpeed , rb.velocity.y);
-        if (!_facingRight) { movement.x = -movement.x; }
-        rb.velocity = movement;
+        if (_eh.Active)
+        {
+            Vector2 movement = new Vector2(_MoveSpeed, rb.velocity.y);
+            if (!_facingRight) { movement.x = -movement.x; }
+            rb.velocity = movement;
+        }
     }
 
     bool IsGrounded()
@@ -118,6 +149,50 @@ public class WalkBehavior : MonoBehaviour
 
         return LeftHeadCheck || RightHeadCheck || LeftBodyCheck || RightBodyCheck || LeftFootCheck || RightFootCheck;
     }
+
+    bool CheckIsInRoom()
+    {
+        Debug.Log("Assigned Room: " + RoomAssigned);
+        bool ret = false;
+        float rayDistance = 0.2f;
+        float height = bc.bounds.size.y;
+        float side = bc.bounds.extents.x;
+        Vector3 pos = bc.bounds.center;
+        Vector2 BodyRight = new Vector2(pos.x + side, pos.y);
+        Vector2 BodyLeft = new Vector2(pos.x - side, pos.y);
+        RaycastHit2D LeftBodyCheck = Physics2D.Raycast(BodyLeft, -Vector2.right, rayDistance, _RoomLayer);
+        RaycastHit2D RightBodyCheck = Physics2D.Raycast(BodyRight, -Vector2.right, rayDistance, _RoomLayer);
+        if (LeftBodyCheck && RightBodyCheck && RoomAssigned)
+        {
+            Room LeftRoom = LeftBodyCheck.collider.gameObject.GetComponent<Room>();
+            Room RightRoom = RightBodyCheck.collider.gameObject.GetComponent<Room>();
+            if (LeftRoom && RightRoom)
+            {
+                if (RoomAssigned)
+                {
+                    if (LeftRoom == RoomAssigned && RightRoom == RoomAssigned)
+                    {
+                        ret = true;
+                    }
+                }
+                else
+                {
+                    ret = true;
+                }
+            }
+        }
+
+        if (_MovementDebug)
+        {
+            Color leftBodyColor = LeftBodyCheck ? Color.cyan : Color.white;
+            Color rightBodyColor = RightBodyCheck ? Color.cyan : Color.white;
+            Debug.DrawRay(BodyLeft+Vector2.up/4, -Vector2.right * rayDistance, leftBodyColor);
+            Debug.DrawRay(BodyRight+ Vector2.up/4, Vector2.right * rayDistance, rightBodyColor);
+        }
+
+        return ret;
+    }
+
     private void Flip()
     {
         if ((Time.time - _lastFlipTime) > _flipCooldown)
