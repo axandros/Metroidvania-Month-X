@@ -28,7 +28,7 @@ public class CameraFollow : MonoBehaviour
         _cam = GetComponent<Camera>();
         _cameraHalfHeight = _cam.orthographicSize;
             
-        Debug.Log("Camera Orthographic: " + _cam.orthographicSize);
+        //Debug.Log("Camera Orthographic: " + _cam.orthographicSize);
     }
 
     // Update is called once per frame

@@ -60,7 +60,7 @@ public class PlatformerCharacter : MonoBehaviour
 
     // --- State Variables ---
 
-    
+    [SerializeField]
     private float _lastJumpTime = 0;
     private float _lastKnockbackTime = 0;
     private float _lateralKnockbackVelocity = 0;
@@ -71,8 +71,11 @@ public class PlatformerCharacter : MonoBehaviour
     private float _movementInput = 0;
     private float _verticalInput = 0;   
     private bool _facingRight = true;
+    [SerializeField]
     private bool _hasJumped = false;
+    [SerializeField]
     private bool _jumpPressed = false;
+    [SerializeField]
     private bool _jumpHeld = false;
 
     // ===== FUNCTIONS ====
@@ -103,7 +106,11 @@ public class PlatformerCharacter : MonoBehaviour
             Debug.DrawRay(rightPosition, -Vector2.up * rayDistance, rightColor);
         }
 
-        if (leftCheck || rightCheck) { ret = true; }
+        if (leftCheck || rightCheck) { ret = true; _anim.SetBool("InAir", false); }
+        else
+        {
+            _anim.SetBool("InAir", true);
+        }
 
         return ret;
     }
@@ -115,8 +122,7 @@ public class PlatformerCharacter : MonoBehaviour
     private void Jump()
     {
         _rb.velocity = new Vector2(_rb.velocity.x, _jumpUpVelocity);
-
-        _anim.SetFloat("InAir", Mathf.Abs(_movementInput));
+        _rb.gravityScale = _jumpGravityScale;
     }
     public void Knockback(Transform damageSource)
     {
@@ -170,6 +176,8 @@ public class PlatformerCharacter : MonoBehaviour
         _knockbackInitialVelocity = new Vector2(vx, vy);
         _knockbackInitialGravity = CalculateGravity(_KnockbackHeight, vx, _KnockbackDistance / 2);
         _rb.gravityScale = _GravityModifierFalling * _jumpGravityScale;
+
+        Debug.Log("Jump Velocity: " + _jumpUpVelocity);
     }
 
 
@@ -182,16 +190,17 @@ public class PlatformerCharacter : MonoBehaviour
         if (Time.time - _lastKnockbackTime < _KnockbackTimetoPeak * 2)
         {
             UpdateKnockback();
-        }else
-        if (_hasJumped)
-        {
-            UpdateJump();
         }
         else if (_verticalInput != 0 || _onLadder)
         {
             Climb();
         }
-        else if (_jumpPressed && _grounded)
+        else if (_hasJumped)
+        {
+            UpdateJump();
+        }
+        
+        else if (_jumpPressed && _grounded && !_hasJumped)
         {
             Jump();
             _jumpHeld = true;
@@ -207,25 +216,30 @@ public class PlatformerCharacter : MonoBehaviour
         _verticalInput = Input.GetAxisRaw("Vertical");
         _jumpPressed = Input.GetButtonDown("Jump");
         _grounded = IsGrounded();
-        if(_jumpHeld && Input.GetButton("Jump")) { _jumpHeld = false; }
+        //Debug.Log(/*"JumpHeld: " + _jumpHeld +*/ " | Input: " + Input.GetButton("Jump"));
+        //if(_jumpHeld && Input.GetButton("Jump")) { _jumpHeld = true; }
     }
 
     void UpdateJump()
     {
         _lastJumpTime += Time.deltaTime;
         if (_lastJumpTime >= 0.25)
-        {
-            if (_rb.velocity.y < 0) // Falling
+        { 
+
+            if (_grounded) // Landed
+            {
+                Debug.Log("Landed from jump");
+                _hasJumped = false;
+                _jumpHeld = false;
+            }
+            else if (_rb.velocity.y < 0.5) // Falling
             {
                 _rb.gravityScale = _jumpGravityScale * _GravityModifierFalling;
             }
-            else if (_grounded) // Landed
-            {
-                _rb.gravityScale = _jumpGravityScale;
-                _hasJumped = false;
-            }
             else if (_jumpHeld && !Input.GetButton("Jump")) // Let go of jump button.
             {
+                _jumpHeld = false;
+                Debug.Log("Released Jump while moving up.");
                 _rb.gravityScale = _jumpGravityScale * _GravityModifierJumpReleased;
             }
 

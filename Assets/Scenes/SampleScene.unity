@@ -5310,6 +5310,18 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 6019024472068159377, guid: 0d9edd7eae6f67d4c9eda6338636d643, type: 3}
+      propertyPath: _DebugGroundCheck
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6019024472068159377, guid: 0d9edd7eae6f67d4c9eda6338636d643, type: 3}
+      propertyPath: _GravityModifierFalling
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 6019024472068159377, guid: 0d9edd7eae6f67d4c9eda6338636d643, type: 3}
+      propertyPath: _GravityModifierJumpReleased
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 6019024472068159378, guid: 0d9edd7eae6f67d4c9eda6338636d643, type: 3}
       propertyPath: m_Name
       value: Girl
