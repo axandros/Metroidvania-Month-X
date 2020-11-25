@@ -16,14 +16,20 @@ public class Room : MonoBehaviour
         public Vector2 startPosition;
     }
 
-    [SerializeField]
-    Vector2 _Extents = new Vector2(10.0f,7.0f);
+    [SerializeField, Tooltip("The width in map tiles for this room."), Range(1, 9)]
+    int _Width = 1;
+    // Unity units for 1 room width;
+    float _widthMultiplier = 10;
+
+    [SerializeField, Tooltip("The height in map tiles for this room."), Range(1, 9)]
+    int _Height = 1;
+    float _heightMultiplier = 9;
 
     CameraFollow _camFollow;
 
     List<Enemy> _enemiesInRoom;
 
-    public Vector2 Extents { get { return _Extents; } }
+    public Vector2 Extents { get { return new Vector2(_Width * _widthMultiplier, _Height * _heightMultiplier); ; } }
 
     private BoxCollider2D _roomCollider;
 
@@ -31,7 +37,7 @@ public class Room : MonoBehaviour
     void Awake()
     {
         _roomCollider = GetComponent<BoxCollider2D>();
-        _roomCollider.size = _Extents;
+        _roomCollider.size = Extents;
         _camFollow = Camera.main.GetComponent<CameraFollow>();
         _enemiesInRoom = new List<Enemy>();
 
@@ -85,6 +91,6 @@ public class Room : MonoBehaviour
     private void OnDrawGizmos()
     {
         Gizmos.color = Color.red;
-        Gizmos.DrawWireCube(this.transform.position, _Extents);
+        Gizmos.DrawWireCube(this.transform.position, Extents);
     }
 }

@@ -1,5 +1,35 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &270354155
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 270354156}
+  m_Layer: 8
+  m_Name: BulletOffest
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &270354156
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 270354155}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0.611, y: 0.159, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 6019024472068159404}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &6019024472068159378
 GameObject:
   m_ObjectHideFlags: 0
@@ -14,9 +44,10 @@ GameObject:
   - component: {fileID: 6019024472068159376}
   - component: {fileID: 6019024472068159377}
   - component: {fileID: 6019024472068159407}
-  m_Layer: 0
+  - component: {fileID: 704273310}
+  m_Layer: 8
   m_Name: Girl
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -31,7 +62,8 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -0.562, y: -1.98, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
+  m_Children:
+  - {fileID: 270354156}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -144,8 +176,8 @@ MonoBehaviour:
   _GroundLayer:
     serializedVersion: 2
     m_Bits: 1024
-  _GravityModifierJumpReleased: 1.25
-  _GravityModifierFalling: 2
+  _GravityModifierJumpReleased: 8
+  _GravityModifierFalling: 3
   _KnockbackHeight: 1
   _KnockbackDistance: 2
   _KnockbackTimetoPeak: 0.5
@@ -153,7 +185,11 @@ MonoBehaviour:
   _LadderLayer:
     serializedVersion: 2
     m_Bits: 2048
-  _DebugGroundCheck: 0
+  _DebugGroundCheck: 1
+  _lastJumpTime: 0
+  _hasJumped: 0
+  _jumpPressed: 0
+  _jumpHeld: 0
 --- !u!70 &6019024472068159407
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
@@ -170,3 +206,19 @@ CapsuleCollider2D:
   m_Offset: {x: 0.09174946, y: -0.18058586}
   m_Size: {x: 0.42582577, y: 1.6388283}
   m_Direction: 0
+--- !u!114 &704273310
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6019024472068159378}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5fb41c45795596440b087e1e67d2fd6b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _BulletPrefab: {fileID: 938192489258921769, guid: 7f35a51a1f344dc4192b998d35804de6, type: 3}
+  _SpawnOffset: {fileID: 270354156}
+  _ShotCooldown: 0.25
+  _BulletSpeed: 5

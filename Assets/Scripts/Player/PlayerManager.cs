@@ -7,17 +7,15 @@ using UnityEngine;
 [RequireComponent(typeof(PlayerShooting))]
 public class PlayerManager : MonoBehaviour
 {
-    
+    PlayerShooting _ps;
+    PlatformerCharacter _pc;
+    PlayerHealth _ph;
 
     // Start is called before the first frame update
     void Start()
     {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
+        _ps = GetComponent<PlayerShooting>();
+        _pc = GetComponent<PlatformerCharacter > ();
+        _ph = GetComponent<PlayerHealth>();
     }
 }
