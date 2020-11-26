@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: 1989389987301759048}
   - component: {fileID: 1989389987301759049}
   - component: {fileID: 1595202271}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Zombie
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -162,6 +162,9 @@ MonoBehaviour:
   _GroundLayer:
     serializedVersion: 2
     m_Bits: 1024
+  _EnemyLayer:
+    serializedVersion: 2
+    m_Bits: 512
   _MovementDebug: 0
   _MoveSpeed: 1
   _StartFacingLeft: 1

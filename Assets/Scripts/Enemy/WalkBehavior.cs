@@ -14,6 +14,8 @@ public class WalkBehavior : MonoBehaviour
     [SerializeField]
     private LayerMask _GroundLayer;
     [SerializeField]
+    private LayerMask _EnemyLayer;
+    [SerializeField]
     private bool _MovementDebug = false;
     
     [SerializeField]
@@ -46,6 +48,7 @@ public class WalkBehavior : MonoBehaviour
         _eh = GetComponent<EnemyHealth>();
         _eh.OnActiveChange += OnActiveChange;
         _facingRight = _StartFacingLeft;
+        rb.gravityScale = 9.81f;
     }
 
     private void OnActiveChange(bool setActive)
@@ -65,8 +68,12 @@ public class WalkBehavior : MonoBehaviour
     {
         if (_eh.Active)
         {
-            IsGrounded();
-            if (!LeftFootCheck ^ !RightFootCheck || CheckforWalls() || !CheckIsInRoom()) // ^ is exclusive OR, or XOR
+            IsGrounded();   // Sets foot checks
+            bool FootCheck = !LeftFootCheck ^ !RightFootCheck;// ^ is exclusive OR, or XOR | Is only 1 foot off the platform?
+            bool Wall = CheckForBlocking(_EnemyLayer | _GroundLayer); // Is there a wall in front of us?
+            bool Room = CheckIsInRoom(); // Are we in the room?
+            if (_MovementDebug) { Debug.Log("Movement Check flags: " + FootCheck + ", " + Wall + ", " + Room); }
+            if ( FootCheck || Wall || Room) 
             {
                 Flip();
             }
@@ -112,11 +119,11 @@ public class WalkBehavior : MonoBehaviour
         return ret;
     }
     
-    bool CheckforWalls()
+    bool CheckForBlocking(LayerMask Layers)
     {
         float rayDistance = 0.2f;
         float height = bc.bounds.size.y;
-        float side = bc.bounds.extents.x;
+        float side = bc.bounds.extents.x+0.1f;
         Vector3 pos = bc.bounds.center;
         Vector2 HeadRight = new Vector2(pos.x + side, pos.y +height*0.3f);
         Vector2 HeadLeft = new Vector2(pos.x-side, pos.y + height * 0.3f);
@@ -124,12 +131,12 @@ public class WalkBehavior : MonoBehaviour
         Vector2 BodyLeft = new Vector2(pos.x-side, pos.y);
         Vector2 FeetLeft = new Vector2(pos.x - side, pos.y - height * 0.3f);
         Vector2 FeetRight = new Vector2(pos.x + side, pos.y - height * 0.3f);
-        RaycastHit2D LeftHeadCheck = Physics2D.Raycast(HeadLeft, -Vector2.right, rayDistance, _GroundLayer);
-        RaycastHit2D RightHeadCheck = Physics2D.Raycast(HeadRight, Vector2.right, rayDistance, _GroundLayer);
-        RaycastHit2D LeftBodyCheck = Physics2D.Raycast(BodyLeft, -Vector2.right, rayDistance, _GroundLayer);
-        RaycastHit2D RightBodyCheck = Physics2D.Raycast(BodyRight, -Vector2.right, rayDistance, _GroundLayer);
-        RaycastHit2D LeftFootCheck = Physics2D.Raycast(FeetLeft, -Vector2.right, rayDistance, _GroundLayer);
-        RaycastHit2D RightFootCheck = Physics2D.Raycast(FeetRight, -Vector2.right, rayDistance, _GroundLayer);
+        RaycastHit2D LeftHeadCheck = Physics2D.Raycast(HeadLeft, -Vector2.right, rayDistance, Layers);
+        RaycastHit2D RightHeadCheck = Physics2D.Raycast(HeadRight, Vector2.right, rayDistance, Layers);
+        RaycastHit2D LeftBodyCheck = Physics2D.Raycast(BodyLeft, -Vector2.right, rayDistance, Layers);
+        RaycastHit2D RightBodyCheck = Physics2D.Raycast(BodyRight, Vector2.right, rayDistance, Layers);
+        RaycastHit2D LeftFootCheck = Physics2D.Raycast(FeetLeft, -Vector2.right, rayDistance, Layers);
+        RaycastHit2D RightFootCheck = Physics2D.Raycast(FeetRight, Vector2.right, rayDistance, Layers);
 
         if (_MovementDebug)
         {
@@ -145,8 +152,9 @@ public class WalkBehavior : MonoBehaviour
             Debug.DrawRay(BodyRight, Vector2.right * rayDistance, rightBodyColor);
             Debug.DrawRay(FeetLeft, -Vector2.right * rayDistance, leftColor);
             Debug.DrawRay(FeetRight, Vector2.right * rayDistance, rightColor);
+            Debug.Log("Block" + (bool)LeftHeadCheck +", "+ (bool)RightHeadCheck + ", " + (bool)LeftBodyCheck + ", " + (bool)RightBodyCheck + ", " + (bool)LeftFootCheck + ", " + (bool)RightFootCheck);
         }
-
+        
         return LeftHeadCheck || RightHeadCheck || LeftBodyCheck || RightBodyCheck || LeftFootCheck || RightFootCheck;
     }
 

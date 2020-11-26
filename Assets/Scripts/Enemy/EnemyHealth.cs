@@ -16,6 +16,7 @@ public class EnemyHealth : MonoBehaviour
     public int HitPoints { get { return _Health; } }
     public int CollisionDamage { get { return _collisionDamage; } }
 
+    [SerializeField]
     private Room _roomAssigned;
     public Room RoomAssigned { get { return _roomAssigned; } set { _roomAssigned = value; } }
 
