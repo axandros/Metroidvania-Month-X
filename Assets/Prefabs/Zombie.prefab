@@ -15,6 +15,7 @@ GameObject:
   - component: {fileID: 1989389987301759047}
   - component: {fileID: 1989389987301759048}
   - component: {fileID: 1989389987301759049}
+  - component: {fileID: 1595202271}
   m_Layer: 0
   m_Name: Zombie
   m_TagString: Untagged
@@ -55,7 +56,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: 0226f30ea19cdee45b0327e895e6c27b, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -155,10 +156,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7558143c31c4cc3409c0de568517c3be, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _RoomLayer:
+    serializedVersion: 2
+    m_Bits: 4096
   _GroundLayer:
     serializedVersion: 2
     m_Bits: 1024
-  _MovementDebug: 1
+  _MovementDebug: 0
   _MoveSpeed: 1
   _StartFacingLeft: 1
 --- !u!114 &1989389987301759049
@@ -175,3 +179,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _Health: 1
   _collisionDamage: 1
+--- !u!114 &1595202271
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1989389987301759053}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 87eebfd3b936dcd4cafa8e36e2742319, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _TargetPalette: {fileID: 2800000, guid: 046fa11942441524a899467e1473b37c, type: 3}

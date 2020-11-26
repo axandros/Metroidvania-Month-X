@@ -19,13 +19,13 @@ TextureImporter:
     second: Spacship_Tile_InnerEdgeBottom
   - first:
       213: -486764393642614584
-    second: Spacship_Tileset_5
+    second: Spacship_Tile_InnerCornerTR
   - first:
       213: -346611025229825069
     second: Spacship_Pipe_CornerBR
   - first:
       213: -1099086203703450676
-    second: Spacship_Tileset_7
+    second: Spacship_Pipe_Horizontal
   - first:
       213: 7698530478263336062
     second: Spacship_Pipe_CornerBL
@@ -61,7 +61,7 @@ TextureImporter:
     second: Spacship_Pipe_OutletTop
   - first:
       213: 5465111633476604599
-    second: Spacship_Tileset_19
+    second: Spacship_Pipe_Vertical
   - first:
       213: 5030636054751716546
     second: Spacship_Pipe_JunctionBottom
@@ -112,13 +112,13 @@ TextureImporter:
     second: Spacship_Tile_InnerEdgeBottom
   - first:
       213: -2239357505950145860
-    second: Spacship_Tileset_5
+    second: Spacship_Tile_InnerCornerTR
   - first:
       213: -7508872214547422396
     second: Spacship_Pipe_CornerBR
   - first:
       213: 3470927627505130333
-    second: Spacship_Tileset_7
+    second: Spacship_Pipe_Horizontal
   - first:
       213: -8786734341365646005
     second: Spacship_Pipe_CornerBL
@@ -154,7 +154,7 @@ TextureImporter:
     second: Spacship_Pipe_OutletTop
   - first:
       213: 27409881096673578
-    second: Spacship_Tileset_19
+    second: Spacship_Pipe_Vertical
   - first:
       213: -5881611703986870751
     second: Spacship_Pipe_JunctionBottom
@@ -196,7 +196,7 @@ TextureImporter:
     second: Spacship_Tile_SingleTop
   - first:
       213: 2021319854848014211
-    second: Spacship_Tileset_34
+    second: Spacship_Tile_SingleTop
   - first:
       213: 5082767150508258681
     second: Spacship_Tile_SingleLeft
@@ -235,7 +235,7 @@ TextureImporter:
     second: Pickup_PDW
   - first:
       213: 923464982016565019
-    second: Spacship_Tileset_15
+    second: Spacship_Ladder
   - first:
       213: -3865587192289161823
     second: Spacship_Tile_OuterCornerTL
@@ -244,25 +244,136 @@ TextureImporter:
     second: Spacship_Tile_OuterEdgeTop
   - first:
       213: -3632964394448686012
-    second: Spacship_Tileset_1
+    second: Spacship_Tile_OuterEdgeTop
   - first:
       213: 6796558533458467327
-    second: Spacship_Tileset_2
+    second: Spacship_Tile_OuterCornerTR
   - first:
       213: -8219444106446065328
-    second: Spacship_Tileset_3
+    second: Spacship_Tile_InnerCornerTL
   - first:
       213: -3842571371018472463
-    second: Spacship_Tileset_4
+    second: Spacship_Tile_InnerEdgeTop
   - first:
       213: -7508872214547422396
-    second: Spacship_Tileset_6
+    second: Spacship_Pipe_CornerTL
   - first:
       213: -8786734341365646005
-    second: Spacship_Tileset_8
+    second: Spacship_Pipe_CornerTR
   - first:
       213: -342418639641881321
-    second: Spacship_Tileset_9
+    second: Spacship_Pipe_IntersectionLeft
+  - first:
+      213: -5556980028528864911
+    second: Spacship_Tile_OuterCornerTL
+  - first:
+      213: 87981403176284830
+    second: Spacship_Tile_OuterEdgeTop
+  - first:
+      213: 8387382689402843722
+    second: Spacship_Pipe_IntersectionTop
+  - first:
+      213: 8321069198737651442
+    second: Spacship_Tile_OuterEdgeLeft
+  - first:
+      213: 476225468967087843
+    second: Spacship_Tileset_12
+  - first:
+      213: 6804820259282366209
+    second: Spacship_Tile_OuterEdgeRight
+  - first:
+      213: -3229027542924888011
+    second: Spacship_Tile_InnerEdgeLeft
+  - first:
+      213: -3323593493358918591
+    second: Spacship_Tile_InnerEdgeRight
+  - first:
+      213: -1639006717455266883
+    second: Spacship_Pipe_EndBottom
+  - first:
+      213: -480067040517489629
+    second: Spacship_Pipe_EndTop
+  - first:
+      213: -5881611703986870751
+    second: Spacship_Pipe_IntersectionBottom
+  - first:
+      213: -856057855939805605
+    second: Spacship_Pipe_IntersectionRight
+  - first:
+      213: -5792192561369013436
+    second: Spacship_Tile_OuterCornerBL
+  - first:
+      213: 5566750529558204059
+    second: Spacship_Tile_OuterEdgeBottom
+  - first:
+      213: -2765479272871187038
+    second: Spacship_Tile_OuterCornerBR
+  - first:
+      213: 2350877408889719100
+    second: Spacship_Tile_InnerCornerBL
+  - first:
+      213: 9178798023908103566
+    second: Spacship_Tile_InnerEdgeBottom
+  - first:
+      213: -7364344424116492620
+    second: Spacship_Tile_InnerCornerBR
+  - first:
+      213: 3240163683938559626
+    second: Spacship_Pipe_IntersectionAll
+  - first:
+      213: -8578588429734023160
+    second: Spacship_Pipe_CornerBL
+  - first:
+      213: 6655900242016442227
+    second: Spacship_Pipe_CornerBR
+  - first:
+      213: 2951552073118098412
+    second: Spacship_Pipe_EndLeft
+  - first:
+      213: -2303226945779413492
+    second: Spacship_Pipe_EndRight
+  - first:
+      213: -3058365183803367859
+    second: Spacship_Tile_SingleHor
+  - first:
+      213: -3146600969011937307
+    second: Spacship_Tile_SingleTop
+  - first:
+      213: 4440272647009887798
+    second: Spacship_Tile_SingleVert
+  - first:
+      213: 4735585486227083698
+    second: Spacship_Tile_IntersectionTop
+  - first:
+      213: 36280460688644627
+    second: Spacship_Tileset_37
+  - first:
+      213: -3531329414771426724
+    second: Powerup_PDW
+  - first:
+      213: 2273915609633979986
+    second: Spacship_Tile_SingleLeft
+  - first:
+      213: -1932850495977482294
+    second: Spacship_Tile_Intersection
+  - first:
+      213: -389015476390529987
+    second: Spacship_Tile_SingleRight
+  - first:
+      213: 8326929469824726193
+    second: Spacship_Tile_IntersectionLeft
+  - first:
+      213: 1271864624082555642
+    second: Spacship_Tile_IntersectionRight
+  - first:
+      213: -1908337036087811947
+    second: Spacship_Tile_SingleBottom
+  - first:
+      213: 7834040662357274905
+    second: Spacship_Tile_IntersectionBottom
+  - first:
+      213: 2226265722662893547
+    second: Spacship_Tileset_46
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -374,48 +485,6 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Spacship_Tile_innerJunctionBottom
-      rect:
-        serializedVersion: 2
-        x: 64
-        y: 32
-        width: 16
-        height: 16
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 8ff04fed6eea4d080800000000000000
-      internalID: -9163507035185868808
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Spacship_Tile_OuterEdgeTop
-      rect:
-        serializedVersion: 2
-        x: 16
-        y: 80
-        width: 16
-        height: 16
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 4447e3ba12e159dc0800000000000000
-      internalID: -3632964394448686012
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
       name: Spacship_Tile_OuterCornerTR
       rect:
         serializedVersion: 2
@@ -437,7 +506,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Spacship_Tile_InnerCorner
+      name: Spacship_Tile_InnerCornerTL
       rect:
         serializedVersion: 2
         x: 48
@@ -458,7 +527,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Spacship_Tile_InnerEdgeBottom
+      name: Spacship_Tile_InnerEdgeTop
       rect:
         serializedVersion: 2
         x: 64
@@ -479,7 +548,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Spacship_Tileset_5
+      name: Spacship_Tile_InnerCornerTR
       rect:
         serializedVersion: 2
         x: 80
@@ -500,7 +569,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Spacship_Pipe_CornerBR
+      name: Spacship_Pipe_CornerTL
       rect:
         serializedVersion: 2
         x: 96
@@ -527,7 +596,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Spacship_Tileset_7
+      name: Spacship_Pipe_Horizontal
       rect:
         serializedVersion: 2
         x: 112
@@ -552,7 +621,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Spacship_Pipe_CornerBL
+      name: Spacship_Pipe_CornerTR
       rect:
         serializedVersion: 2
         x: 128
@@ -579,7 +648,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Spacship_Pipe_JunctionLeft
+      name: Spacship_Pipe_IntersectionLeft
       rect:
         serializedVersion: 2
         x: 144
@@ -608,7 +677,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Spacship_Pipe_JunctionTop
+      name: Spacship_Pipe_IntersectionTop
       rect:
         serializedVersion: 2
         x: 160
@@ -658,27 +727,6 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Pickup_PDW
-      rect:
-        serializedVersion: 2
-        x: 112
-        y: 32
-        width: 16
-        height: 16
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 79b5bdcb26da88960800000000000000
-      internalID: 7604518610401975191
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
       name: Spacship_Tile_OuterEdgeRight
       rect:
         serializedVersion: 2
@@ -700,7 +748,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Spacship_Tile_InnerEdgeRight
+      name: Spacship_Tile_InnerEdgeLeft
       rect:
         serializedVersion: 2
         x: 48
@@ -742,7 +790,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Spacship_Tile_InnerEdgeLeft
+      name: Spacship_Tile_InnerEdgeRight
       rect:
         serializedVersion: 2
         x: 80
@@ -763,7 +811,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Spacship_Pipe_OutletBottom
+      name: Spacship_Pipe_EndBottom
       rect:
         serializedVersion: 2
         x: 96
@@ -792,7 +840,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Spacship_Pipe_OutletTop
+      name: Spacship_Pipe_EndTop
       rect:
         serializedVersion: 2
         x: 112
@@ -821,7 +869,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Spacship_Tileset_19
+      name: Spacship_Pipe_Vertical
       rect:
         serializedVersion: 2
         x: 128
@@ -846,7 +894,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Spacship_Pipe_JunctionBottom
+      name: Spacship_Pipe_IntersectionBottom
       rect:
         serializedVersion: 2
         x: 144
@@ -875,7 +923,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Spacship_Pipe_JunctionRight
+      name: Spacship_Pipe_IntersectionRight
       rect:
         serializedVersion: 2
         x: 160
@@ -967,7 +1015,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Spacship_Tile_InnerCornerTR
+      name: Spacship_Tile_InnerCornerBL
       rect:
         serializedVersion: 2
         x: 48
@@ -988,7 +1036,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Spacship_Tile_InnerEdgeTop
+      name: Spacship_Tile_InnerEdgeBottom
       rect:
         serializedVersion: 2
         x: 64
@@ -1009,7 +1057,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Spacship_Tile_InnerCornerTL
+      name: Spacship_Tile_InnerCornerBR
       rect:
         serializedVersion: 2
         x: 80
@@ -1030,7 +1078,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Spacship_Pipe_JunctionFull
+      name: Spacship_Pipe_IntersectionAll
       rect:
         serializedVersion: 2
         x: 96
@@ -1059,7 +1107,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Spacship_Pipe_CornerTR
+      name: Spacship_Pipe_CornerBL
       rect:
         serializedVersion: 2
         x: 112
@@ -1086,7 +1134,70 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Spacship_Pipe_CornerTL
+      name: Spacship_Tile_OuterCornerTL
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 80
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 171d89f2b14a1e2b0800000000000000
+      internalID: -5556980028528864911
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Spacship_Tile_OuterEdgeTop
+      rect:
+        serializedVersion: 2
+        x: 16
+        y: 80
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e92b92bbe92983100800000000000000
+      internalID: 87981403176284830
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Spacship_Tileset_12
+      rect:
+        serializedVersion: 2
+        x: 16
+        y: 64
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3eee6c67a84eb9600800000000000000
+      internalID: 476225468967087843
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Spacship_Pipe_CornerBR
       rect:
         serializedVersion: 2
         x: 128
@@ -1097,23 +1208,17 @@ TextureImporter:
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
-      physicsShape:
-      - - {x: -5, y: 8}
-        - {x: -5, y: 5}
-        - {x: -8, y: 5}
-        - {x: -8, y: -5}
-        - {x: 5, y: -5}
-        - {x: 5, y: 8}
+      physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: a324ef61caa16e9c0800000000000000
-      internalID: -3898399101020126662
+      spriteID: 37793d171028e5c50800000000000000
+      internalID: 6655900242016442227
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Spacship_Pipe_OutletLeft
+      name: Spacship_Pipe_EndLeft
       rect:
         serializedVersion: 2
         x: 144
@@ -1124,25 +1229,17 @@ TextureImporter:
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
-      physicsShape:
-      - - {x: -8, y: 7}
-        - {x: -8, y: -7}
-        - {x: -6, y: -7}
-        - {x: -6, y: -5}
-        - {x: 8, y: -5}
-        - {x: 8, y: 5}
-        - {x: -6, y: 5}
-        - {x: -6, y: 7}
+      physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 4edcab2d93c4e8f20800000000000000
-      internalID: 3426760177707830756
+      spriteID: ce3a546f8f406f820800000000000000
+      internalID: 2951552073118098412
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Spacship_Pipe_OutletRight
+      name: Spacship_Pipe_EndRight
       rect:
         serializedVersion: 2
         x: 160
@@ -1153,19 +1250,32 @@ TextureImporter:
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
-      physicsShape:
-      - - {x: -8, y: -5}
-        - {x: 6, y: -5}
-        - {x: 6, y: -7}
-        - {x: 8, y: -7}
-        - {x: 8, y: 7}
-        - {x: 6, y: 7}
-        - {x: 6, y: 5}
-        - {x: -8, y: 5}
+      physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: bf2e70b7747fe7d30800000000000000
-      internalID: 4431250969757999867
+      spriteID: c0ec5bbbb4b4900e0800000000000000
+      internalID: -2303226945779413492
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Spacship_Tile_SingleHor
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 32
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d4e5af9b1118e85d0800000000000000
+      internalID: -3058365183803367859
       vertices: []
       indices: 
       edges: []
@@ -1185,14 +1295,56 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 65299aa0a976d4f20800000000000000
-      internalID: 3408494404290843222
+      spriteID: 5efb42017170554d0800000000000000
+      internalID: -3146600969011937307
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Spacship_Tileset_34
+      name: Spacship_Tile_SingleVert
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 32
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 63668e662740f9d30800000000000000
+      internalID: 4440272647009887798
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Spacship_Tile_IntersectionTop
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 32
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2b19f06d8ed28b140800000000000000
+      internalID: 4735585486227083698
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Spacship_Tileset_37
       rect:
         serializedVersion: 2
         x: 96
@@ -1206,8 +1358,29 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 387f8a5d2bb2d0c10800000000000000
-      internalID: 2021319854848014211
+      spriteID: 31a52a303e4e08000800000000000000
+      internalID: 36280460688644627
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Powerup_PDW
+      rect:
+        serializedVersion: 2
+        x: 112
+        y: 32
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c5a39a76b923efec0800000000000000
+      internalID: -3531329414771426724
       vertices: []
       indices: 
       edges: []
@@ -1227,14 +1400,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 975b1123bcd998640800000000000000
-      internalID: 5082767150508258681
+      spriteID: 25ef27103329e8f10800000000000000
+      internalID: 2273915609633979986
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Spacship_Tile_SingleJunction
+      name: Spacship_Tile_Intersection
       rect:
         serializedVersion: 2
         x: 16
@@ -1248,8 +1421,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 2cb9177ac52bd3960800000000000000
-      internalID: 7583413458577759170
+      spriteID: ac7135fe6b22d25e0800000000000000
+      internalID: -1932850495977482294
       vertices: []
       indices: 
       edges: []
@@ -1269,8 +1442,50 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 69b9699f1b186e470800000000000000
-      internalID: 8423562754439682966
+      spriteID: d34fc9d3c70f99af0800000000000000
+      internalID: -389015476390529987
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Spacship_Tile_IntersectionLeft
+      rect:
+        serializedVersion: 2
+        x: 48
+        y: 16
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1b472ae1c323f8370800000000000000
+      internalID: 8326929469824726193
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Spacship_Tile_IntersectionRight
+      rect:
+        serializedVersion: 2
+        x: 80
+        y: 16
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: af293d0132296a110800000000000000
+      internalID: 1271864624082555642
       vertices: []
       indices: 
       edges: []
@@ -1290,98 +1505,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 482f730abb3ea1700800000000000000
-      internalID: 511971902646383236
+      spriteID: 590a34493993485e0800000000000000
+      internalID: -1908337036087811947
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Spacship_Tile_SingleVet
-      rect:
-        serializedVersion: 2
-        x: 32
-        y: 32
-        width: 16
-        height: 16
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: a8955b5f207ffddc0800000000000000
-      internalID: -3611896784043550326
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Spacship_Tile_SingleHorizontal
-      rect:
-        serializedVersion: 2
-        x: 0
-        y: 32
-        width: 16
-        height: 16
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 494221bd219c3cfc0800000000000000
-      internalID: -3475713404577897324
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Spacship_Tile_innerJunctionRight
-      rect:
-        serializedVersion: 2
-        x: 48
-        y: 16
-        width: 16
-        height: 16
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 6087b781e946e9290800000000000000
-      internalID: -7881751667673434106
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Spacship_Tile_innerJunctionLeft
-      rect:
-        serializedVersion: 2
-        x: 80
-        y: 16
-        width: 16
-        height: 16
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 3bb2baf3079db6150800000000000000
-      internalID: 5867022015707950003
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Spacship_Tile_innerJunctionTop
+      name: Spacship_Tile_IntersectionBottom
       rect:
         serializedVersion: 2
         x: 64
@@ -1395,29 +1526,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 72f1ccf23a6e3fa60800000000000000
-      internalID: 7706756975917014823
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Spacship_Tile_OuterCornerTL
-      rect:
-        serializedVersion: 2
-        x: 0
-        y: 80
-        width: 16
-        height: 16
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 1ad0e4bedecaa5ac0800000000000000
-      internalID: -3865587192289161823
+      spriteID: 91175c3d97a18bc60800000000000000
+      internalID: 7834040662357274905
       vertices: []
       indices: 
       edges: []
