@@ -2,13 +2,20 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+[System.Serializable]
+public struct Palette
+{
+    public Texture2D texture;
+    public string name;
+}
 
 public class PaletteSwapScript : MonoBehaviour
 {
-    //[SerializeField]
-    //private Texture2D _SourcePalette;
     [SerializeField]
-    private Texture2D _TargetPalette;
+    private Texture2D _MainPalette;
+
+    [SerializeField]
+    private List<Palette> PaletteList;
 
     //private Material _mat;
     static readonly int shPropTex = Shader.PropertyToID("_Target");
@@ -30,17 +37,22 @@ public class PaletteSwapScript : MonoBehaviour
         //_mat = GetComponent<Renderer>().material = new Material(GetComponent<Renderer>().material);
         _ren = GetComponent<Renderer>();
         
-        ApplyTex();
+        ApplyTex(_MainPalette);
     }
 
-    private void ApplyTex()
+    private void ApplyTex(Texture2D tex)
     {
-        if (_TargetPalette )//&& _SourcePalette)
+        if (tex )//&& _SourcePalette)
         {
-            //_mat.SetTexture(shPropTex, _TargetPalette);
-            MPB.SetTexture("_Target", _TargetPalette);
-            //MPB.SetTexture("_Source", _SourcePalette);
+            MPB.SetTexture(shPropTex, tex);
+            //MPB.SetTexture("_Target", _TargetPalette);
             _ren.SetPropertyBlock(MPB);
         }
     }
+
+    public void Flash(Texture2D tex, float speed, float duration)
+    {
+
+    }
+    
 }
