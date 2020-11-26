@@ -182,6 +182,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _Health: 1
   _collisionDamage: 1
+  _roomAssigned: {fileID: 0}
 --- !u!114 &1595202271
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -194,4 +195,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 87eebfd3b936dcd4cafa8e36e2742319, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _TargetPalette: {fileID: 2800000, guid: 046fa11942441524a899467e1473b37c, type: 3}
+  _MainPalette: {fileID: 0}
+  PaletteList:
+  - texture: {fileID: 2800000, guid: 86bdc452cccd03e4b89ff32cb89e496e, type: 3}
+    name: Hurt

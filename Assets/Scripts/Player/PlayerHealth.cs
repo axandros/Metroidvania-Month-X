@@ -13,6 +13,7 @@ public class PlayerHealth : MonoBehaviour
     [SerializeField, Tooltip("The number of unity units to knock the character back, assuming flat ground.")]
     float KnockbackDistance = 2;
     public int HitPoints { get { return _Health; } }
+    public float IFrameDuraiton { get { return _IFrameDuration; } }
 
     private float _timeLastHit = 0;
     private PlatformerCharacter _pc;

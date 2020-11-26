@@ -6,6 +6,7 @@ using UnityEngine;
 [RequireComponent(typeof(Rigidbody2D))]
 [RequireComponent(typeof(CapsuleCollider2D))]
 [RequireComponent(typeof(Animator))]
+[RequireComponent(typeof(PlayerHealth))]
 public class PlatformerCharacter : MonoBehaviour
 {
     // --- Move Parameters ---
@@ -51,6 +52,8 @@ public class PlatformerCharacter : MonoBehaviour
     private Rigidbody2D _rb;
     private CapsuleCollider2D _bc;
     private Animator _anim;
+    private PaletteSwapScript _pss;
+    private PlayerHealth _ph;
 
     // --- Derived cache ---
     private float _jumpGravityScale;
@@ -130,6 +133,7 @@ public class PlatformerCharacter : MonoBehaviour
     }
     public void Knockback(bool KnockbackDirectionLeft = true)
     {
+        if (_pss) { _pss.Flash("Hurt", 0.25f, _ph.IFrameDuraiton); }
         _lastKnockbackTime = Time.time;
         int direction = 1;
         if (!KnockbackDirectionLeft) { direction = -1; }
@@ -167,6 +171,8 @@ public class PlatformerCharacter : MonoBehaviour
         _rb = GetComponent<Rigidbody2D>();
         _anim = GetComponent<Animator>();
         _bc = GetComponent<CapsuleCollider2D>();
+        _pss = GetComponent<PaletteSwapScript>();
+        _ph = GetComponent<PlayerHealth > ();
 
         // --- Cache Values ---
         _jumpGravityScale = CalculateGravity(_JumpHeight, _TimeToPeak);

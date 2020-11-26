@@ -50,9 +50,41 @@ public class PaletteSwapScript : MonoBehaviour
         }
     }
 
+    bool FlashCoroutineRunning = false;
+
+    public void Flash(string tag, float speed, float duration)
+    {
+        foreach(Palette p in PaletteList)
+        {
+            if (p.name == tag)
+            {
+                Flash(p.texture, speed, duration);
+                break;
+            }
+        }
+    }
+
     public void Flash(Texture2D tex, float speed, float duration)
     {
-
+        if (FlashCoroutineRunning == false)
+        {
+            StartCoroutine(PaletteShiftFlash(tex, speed, duration));
+        }
     }
-    
+
+    private IEnumerator PaletteShiftFlash(Texture2D tex, float speed, float duration)
+    {
+        FlashCoroutineRunning = true;
+        float startTime = Time.time;
+        bool swapped = false;
+        while (Time.time - startTime > duration)
+        {
+            Texture2D texToApply = swapped ? _MainPalette : tex;
+            ApplyTex(texToApply);
+            yield return new WaitForSeconds (speed);
+        }
+        // Cleanup
+        ApplyTex(_MainPalette) ;
+        FlashCoroutineRunning = false;
+    }
 }

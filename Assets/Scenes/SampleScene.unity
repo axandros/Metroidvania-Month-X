@@ -783,7 +783,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 87eebfd3b936dcd4cafa8e36e2742319, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _TargetPalette: {fileID: 2800000, guid: 73279a69b5424824b9b2af736675e0d2, type: 3}
+  _MainPalette: {fileID: 2800000, guid: d4f522ed06a675c46bd4b54b541634da, type: 3}
+  PaletteList:
+  - texture: {fileID: 2800000, guid: 86bdc452cccd03e4b89ff32cb89e496e, type: 3}
+    name: Hurt
 --- !u!114 &704273317
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -806,10 +809,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 1989389987301759048, guid: 09803751506ecf04eb0af4826a1de319, type: 3}
-      propertyPath: _MovementDebug
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 1989389987301759050, guid: 09803751506ecf04eb0af4826a1de319, type: 3}
       propertyPath: m_RootOrder
       value: 5
@@ -6813,7 +6812,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 87eebfd3b936dcd4cafa8e36e2742319, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _TargetPalette: {fileID: 2800000, guid: 3f50b39d1de86594c8cbf81699eb392d, type: 3}
+  _MainPalette: {fileID: 2800000, guid: 3f50b39d1de86594c8cbf81699eb392d, type: 3}
+  PaletteList: []
 --- !u!1001 &967454718
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -7063,7 +7063,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 87eebfd3b936dcd4cafa8e36e2742319, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _TargetPalette: {fileID: 2800000, guid: 73279a69b5424824b9b2af736675e0d2, type: 3}
+  _MainPalette: {fileID: 0}
+  PaletteList: []
 --- !u!1 &1107400806
 GameObject:
   m_ObjectHideFlags: 0
@@ -7267,7 +7268,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 87eebfd3b936dcd4cafa8e36e2742319, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _TargetPalette: {fileID: 2800000, guid: e23e53f053b736e45997d120db94e987, type: 3}
+  _MainPalette: {fileID: 0}
+  PaletteList: []
 --- !u!1001 &1474143020
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -7408,6 +7410,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1595202271, guid: 09803751506ecf04eb0af4826a1de319, type: 3}
+      propertyPath: PaletteList.Array.size
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 1989389987301759050, guid: 09803751506ecf04eb0af4826a1de319, type: 3}
       propertyPath: m_RootOrder
       value: 6
@@ -8240,7 +8246,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 87eebfd3b936dcd4cafa8e36e2742319, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _TargetPalette: {fileID: 2800000, guid: e23e53f053b736e45997d120db94e987, type: 3}
+  _MainPalette: {fileID: 0}
+  PaletteList: []
 --- !u!1 &2097094534
 GameObject:
   m_ObjectHideFlags: 0
