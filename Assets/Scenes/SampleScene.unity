@@ -736,36 +736,6 @@ MonoBehaviour:
   m_CropFrameX: 1
   m_CropFrameY: 1
   m_StretchFill: 0
---- !u!21 &537869919
-Material:
-  serializedVersion: 6
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_Name: PaletteSwap (Instance) (Instance) (Instance)
-  m_Shader: {fileID: -6465566751694194690, guid: ce6cc405aa6c5864189b5d953079fcc0, type: 3}
-  m_ShaderKeywords: ETC1_EXTERNAL_ALPHA
-  m_LightmapFlags: 4
-  m_EnableInstancingVariants: 0
-  m_DoubleSidedGI: 0
-  m_CustomRenderQueue: -1
-  stringTagMap: {}
-  disabledShaderPasses: []
-  m_SavedProperties:
-    serializedVersion: 3
-    m_TexEnvs:
-    - _Source:
-        m_Texture: {fileID: 2800000, guid: 1bc08c2d79dca284bb6c1df573254603, type: 3}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
-    - _Target:
-        m_Texture: {fileID: 2800000, guid: 046fa11942441524a899467e1473b37c, type: 3}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
-    m_Floats: []
-    m_Colors: []
-  m_BuildTextureStacks: []
 --- !u!1 &704273309 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 6019024472068159378, guid: 0d9edd7eae6f67d4c9eda6338636d643, type: 3}
@@ -783,7 +753,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 87eebfd3b936dcd4cafa8e36e2742319, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _TargetPalette: {fileID: 2800000, guid: 73279a69b5424824b9b2af736675e0d2, type: 3}
+  _MainPalette: {fileID: 0}
+  PaletteList: []
 --- !u!114 &704273317
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -806,10 +777,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 1989389987301759048, guid: 09803751506ecf04eb0af4826a1de319, type: 3}
-      propertyPath: _MovementDebug
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 1989389987301759050, guid: 09803751506ecf04eb0af4826a1de319, type: 3}
       propertyPath: m_RootOrder
       value: 5
@@ -986,7 +953,7 @@ TilemapRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 537869919}
+  - {fileID: 2100000, guid: 6395afd8fe349404991bb97be0a54183, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -6813,7 +6780,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 87eebfd3b936dcd4cafa8e36e2742319, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _TargetPalette: {fileID: 2800000, guid: 3f50b39d1de86594c8cbf81699eb392d, type: 3}
+  _MainPalette: {fileID: 0}
+  PaletteList: []
 --- !u!1001 &967454718
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -6922,6 +6890,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1989389987301759051, guid: 09803751506ecf04eb0af4826a1de319, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 6395afd8fe349404991bb97be0a54183, type: 2}
     - target: {fileID: 1989389987301759053, guid: 09803751506ecf04eb0af4826a1de319, type: 3}
       propertyPath: m_Name
       value: Zombie (6)
@@ -7063,7 +7035,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 87eebfd3b936dcd4cafa8e36e2742319, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _TargetPalette: {fileID: 2800000, guid: 73279a69b5424824b9b2af736675e0d2, type: 3}
+  _MainPalette: {fileID: 0}
+  PaletteList: []
 --- !u!1 &1107400806
 GameObject:
   m_ObjectHideFlags: 0
@@ -7116,7 +7089,7 @@ TilemapRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 0226f30ea19cdee45b0327e895e6c27b, type: 2}
+  - {fileID: 2100000, guid: 6395afd8fe349404991bb97be0a54183, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -7267,7 +7240,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 87eebfd3b936dcd4cafa8e36e2742319, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _TargetPalette: {fileID: 2800000, guid: e23e53f053b736e45997d120db94e987, type: 3}
+  _MainPalette: {fileID: 0}
+  PaletteList: []
 --- !u!1001 &1474143020
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -7845,7 +7819,7 @@ TilemapRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 0226f30ea19cdee45b0327e895e6c27b, type: 2}
+  - {fileID: 2100000, guid: 6395afd8fe349404991bb97be0a54183, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -8240,7 +8214,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 87eebfd3b936dcd4cafa8e36e2742319, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _TargetPalette: {fileID: 2800000, guid: e23e53f053b736e45997d120db94e987, type: 3}
+  _MainPalette: {fileID: 0}
+  PaletteList: []
 --- !u!1 &2097094534
 GameObject:
   m_ObjectHideFlags: 0
@@ -8402,7 +8377,7 @@ PrefabInstance:
     - target: {fileID: 1989389987301759051, guid: 09803751506ecf04eb0af4826a1de319, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 2100000, guid: 0226f30ea19cdee45b0327e895e6c27b, type: 2}
+      objectReference: {fileID: 2100000, guid: 6395afd8fe349404991bb97be0a54183, type: 2}
     - target: {fileID: 1989389987301759053, guid: 09803751506ecf04eb0af4826a1de319, type: 3}
       propertyPath: m_Name
       value: Zombie
@@ -8495,7 +8470,7 @@ PrefabInstance:
     - target: {fileID: 6019024472068159405, guid: 0d9edd7eae6f67d4c9eda6338636d643, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 2100000, guid: 0226f30ea19cdee45b0327e895e6c27b, type: 2}
+      objectReference: {fileID: 2100000, guid: 6395afd8fe349404991bb97be0a54183, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0d9edd7eae6f67d4c9eda6338636d643, type: 3}
 --- !u!4 &6019024472772389904 stripped
