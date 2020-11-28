@@ -106,10 +106,11 @@ public class PlatformerCharacter : MonoBehaviour
             Debug.DrawRay(rightPosition, -Vector2.up * rayDistance, rightColor);
         }
 
-        if (leftCheck || rightCheck) { ret = true; _anim.SetBool("InAir", false); }
+        if (leftCheck || rightCheck) { ret = true;  }
         else
         {
-            _anim.SetBool("InAir", true);
+            //_anim.SetBool("InAir", true);
+            //_anim.Play("Girl_Jump");
         }
 
         return ret;
@@ -121,13 +122,16 @@ public class PlatformerCharacter : MonoBehaviour
     }
     private void Jump(float horizontalOverride)
     {
+        if (horizontalOverride > 0 && !_facingRight) { Flip(); }
+        else if (horizontalOverride < 0 && _facingRight) { Flip(); }
+        Debug.Log("Playing animation Jump");
+        _anim.Play("Girl_Jump");
         _rb.velocity = new Vector2(horizontalOverride, _jumpUpVelocity);
         _rb.gravityScale = _jumpGravityScale;
     }
     private void Jump()
     {
-        _rb.velocity = new Vector2(_rb.velocity.x, _jumpUpVelocity);
-        _rb.gravityScale = _jumpGravityScale;
+        Jump(_rb.velocity.x);
     }
     public void Knockback(Transform damageSource)
     {
@@ -154,6 +158,8 @@ public class PlatformerCharacter : MonoBehaviour
         Debug.Log("Ladder Check " + LadderCheck.collider);
         if (LadderCheck)
         {
+            Debug.Log("Playing animation Climb");
+            _anim.Play("Girl_Climb");
             Debug.Log("Ladder Found");
             // We found a ladder
             _onLadder = true;
@@ -165,9 +171,12 @@ public class PlatformerCharacter : MonoBehaviour
                 Jump(_movementInput * _MoveSpeed);
                 _onLadder = false;
             }
+            //Flipp
+
 
         } else
         {
+            _anim.Play("Girl_Jump");
             Debug.Log("Ladder Lost");
             _onLadder = false;
             _rb.gravityScale = _jumpGravityScale * _GravityModifierFalling;
@@ -276,13 +285,15 @@ public class PlatformerCharacter : MonoBehaviour
         if(_onLadder)
         {
             _rb.velocity = new Vector2(_MoveSpeed/2*_movementInput,_verticalInput * _ClimbSpeed);
-            _anim.SetFloat("HorizontalSpeed", Mathf.Abs(_movementInput));
-            //_anim.SetFloat("ClimbingSpeed", Mathf.Abs(_verticalInput));
         }
         else if (_grounded)
         {
             _rb.velocity = new Vector2(_movementInput * _MoveSpeed, _rb.velocity.y);
-            _anim.SetFloat("HorizontalSpeed", Mathf.Abs(_movementInput));
+            if ( _movementInput != 0) {
+                Debug.Log("Playing animation Walk");
+                _anim.Play("Girl_Walk"); } else {
+                Debug.Log("Playing animation Idle");
+                _anim.Play("Girl_Idle"); }
             if (_movementInput > 0 && !_facingRight) { Flip(); }
             else if (_movementInput < 0 && _facingRight) { Flip(); }
         }
