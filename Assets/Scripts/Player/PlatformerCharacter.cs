@@ -119,6 +119,11 @@ public class PlatformerCharacter : MonoBehaviour
         _facingRight = !_facingRight;
         transform.Rotate(new Vector3(0, 180,0));
     }
+    private void Jump(float horizontalOverride)
+    {
+        _rb.velocity = new Vector2(horizontalOverride, _jumpUpVelocity);
+        _rb.gravityScale = _jumpGravityScale;
+    }
     private void Jump()
     {
         _rb.velocity = new Vector2(_rb.velocity.x, _jumpUpVelocity);
@@ -153,7 +158,14 @@ public class PlatformerCharacter : MonoBehaviour
             // We found a ladder
             _onLadder = true;
             _rb.gravityScale = 0;
-            
+
+            // Jumping off Ladders
+            if (_jumpPressed)
+            {
+                Jump(_movementInput * _MoveSpeed);
+                _onLadder = false;
+            }
+
         } else
         {
             Debug.Log("Ladder Lost");
