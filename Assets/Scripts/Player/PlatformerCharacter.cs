@@ -145,13 +145,15 @@ public class PlatformerCharacter : MonoBehaviour
         RaycastHit2D LadderCheck = Physics2D.Raycast(rayStartPosition, Vector2.up, rayDistance, _LadderLayer);
         Color col = LadderCheck?Color.red:Color.blue;
         Debug.DrawRay(rayStartPosition, Vector2.up *rayDistance, Color.blue); 
-        //Debug.Log("Looking for Ladder: ");
+        
+        Debug.Log("Ladder Check " + LadderCheck.collider);
         if (LadderCheck)
         {
             Debug.Log("Ladder Found");
             // We found a ladder
             _onLadder = true;
             _rb.gravityScale = 0;
+            
         } else
         {
             Debug.Log("Ladder Lost");
@@ -206,6 +208,11 @@ public class PlatformerCharacter : MonoBehaviour
             _jumpHeld = true;
             _hasJumped = true;
             _lastJumpTime = 0;
+        }
+        else
+        {
+            // "fall"back 
+            _rb.gravityScale = _jumpGravityScale * _GravityModifierFalling;
         }
     }
 
