@@ -51,6 +51,8 @@ public class PlayerHealth : MonoBehaviour
         // Apply the damage to the player.
         _Health -= damage;
 
+        AudioManager.Play("Hurt");
+
         // Return actual damage dealt.
         return damage;
     }

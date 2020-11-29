@@ -60,12 +60,12 @@ public class PlatformerCharacter : MonoBehaviour
 
     // --- State Variables ---
 
-    [SerializeField]
     private float _lastJumpTime = 0;
     private float _lastKnockbackTime = 0;
     private float _lateralKnockbackVelocity = 0;
     private bool _grounded = false;
     private bool _onLadder = false;
+    private bool _inAir = false;
 
     // --- Input Variables ---
     private float _movementInput = 0;

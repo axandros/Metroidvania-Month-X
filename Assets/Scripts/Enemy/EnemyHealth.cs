@@ -54,5 +54,6 @@ public class EnemyHealth : MonoBehaviour
     {
         Active = false;
         _anim.SetBool("Dead", true);
+        AudioManager.Play("EnemyDie");
     }
 }
