@@ -153,9 +153,9 @@ public class PlatformerCharacter : MonoBehaviour
         float rayDistance = 0.2f;
         RaycastHit2D LadderCheck = Physics2D.Raycast(rayStartPosition, Vector2.up, rayDistance, _LadderLayer);
         Color col = LadderCheck?Color.red:Color.blue;
-        Debug.DrawRay(rayStartPosition, Vector2.up *rayDistance, Color.blue); 
+        //Debug.DrawRay(rayStartPosition, Vector2.up *rayDistance, Color.blue); 
         
-        Debug.Log("Ladder Check " + LadderCheck.collider);
+        //Debug.Log("Ladder Check " + LadderCheck.collider);
         if (LadderCheck)
         {
             Debug.Log("Playing animation Climb");
