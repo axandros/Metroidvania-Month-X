@@ -165,7 +165,7 @@ MonoBehaviour:
   _EnemyLayer:
     serializedVersion: 2
     m_Bits: 512
-  _MovementDebug: 1
+  _MovementDebug: 0
   _MoveSpeed: 1
   _StartFacingLeft: 1
 --- !u!114 &1989389987301759049

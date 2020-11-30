@@ -160,7 +160,7 @@ public class WalkBehavior : MonoBehaviour
 
     bool CheckIsInRoom()
     {
-        Debug.Log("Assigned Room: " + RoomAssigned);
+        //Debug.Log("Assigned Room: " + RoomAssigned);
         bool ret = false;
         float rayDistance = 0.2f;
         float height = bc.bounds.size.y;
