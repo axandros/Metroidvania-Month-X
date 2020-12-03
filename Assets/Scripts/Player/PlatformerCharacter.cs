@@ -207,33 +207,36 @@ public class PlatformerCharacter : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        // Normal code
-        ClearAndUpdateInputs();
+        if (Time.timeScale != 0)
+        {
+            // Normal code
+            ClearAndUpdateInputs();
 
-        if (Time.time - _lastKnockbackTime < _KnockbackTimetoPeak * 2)
-        {
-            UpdateKnockback();
-        }
-        else if (_verticalInput != 0 || _onLadder)
-        {
-            Climb();
-        }
-        else if (_hasJumped)
-        {
-            UpdateJump();
-        }
-        
-        else if (_jumpPressed && _grounded && !_hasJumped)
-        {
-            Jump();
-            _jumpHeld = true;
-            _hasJumped = true;
-            _lastJumpTime = 0;
-        }
-        else
-        {
-            // "fall"back 
-            _rb.gravityScale = _jumpGravityScale * _GravityModifierFalling;
+            if (Time.time - _lastKnockbackTime < _KnockbackTimetoPeak * 2)
+            {
+                UpdateKnockback();
+            }
+            else if (_verticalInput != 0 || _onLadder)
+            {
+                Climb();
+            }
+            else if (_hasJumped)
+            {
+                UpdateJump();
+            }
+
+            else if (_jumpPressed && _grounded && !_hasJumped)
+            {
+                Jump();
+                _jumpHeld = true;
+                _hasJumped = true;
+                _lastJumpTime = 0;
+            }
+            else
+            {
+                // "fall"back 
+                _rb.gravityScale = _jumpGravityScale * _GravityModifierFalling;
+            }
         }
     }
 
@@ -290,9 +293,9 @@ public class PlatformerCharacter : MonoBehaviour
         {
             _rb.velocity = new Vector2(_movementInput * _MoveSpeed, _rb.velocity.y);
             if ( _movementInput != 0) {
-                Debug.Log("Playing animation Walk");
+               // Debug.Log("Playing animation Walk");
                 _anim.Play("Girl_Walk"); } else {
-                Debug.Log("Playing animation Idle");
+               // Debug.Log("Playing animation Idle");
                 _anim.Play("Girl_Idle"); }
             if (_movementInput > 0 && !_facingRight) { Flip(); }
             else if (_movementInput < 0 && _facingRight) { Flip(); }

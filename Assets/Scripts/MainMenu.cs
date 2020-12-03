@@ -1,12 +1,10 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 
-public class PauseMenu : MonoBehaviour
+public class MainMenu : MonoBehaviour
 {
-    bool _isPaused = false;
-
     [SerializeField]
     GameObject PauseText;
 
@@ -19,20 +17,22 @@ public class PauseMenu : MonoBehaviour
     Vector3 _cursorOffset;
 
     int _cursorPosition = 0;
+    float _soundVolumeDec = 9;
 
-    private void Start()
+    [SerializeField]
+    TextMeshProUGUI _VolumeDisplay;
+
+    // Start is called before the first frame update
+    void Start()
     {
         if (_Options.Count > 0)
             _cursorOffset = _Cursor.transform.position - _Options[0].transform.position;
+
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Escape))
-        {
-            TogglePause();
-        }
         if (Input.GetKeyDown(KeyCode.UpArrow) || Input.GetKeyDown(KeyCode.W))
         {
             MoveSelector(true);
@@ -40,6 +40,12 @@ public class PauseMenu : MonoBehaviour
         else if (Input.GetKeyDown(KeyCode.DownArrow) || Input.GetKeyDown(KeyCode.S))
         {
             MoveSelector(false);
+        }
+        else if (Input.GetKeyDown(KeyCode.RightArrow) || Input.GetKeyDown(KeyCode.D)){
+            SoundVolume(1);
+        }
+        else if (Input.GetKeyDown(KeyCode.LeftArrow) || Input.GetKeyDown(KeyCode.A)){
+            SoundVolume(-1);
         }
         else if (Input.GetKeyDown(KeyCode.Return))
         {
@@ -51,15 +57,14 @@ public class PauseMenu : MonoBehaviour
     {
         switch (_cursorPosition)
         {
-            case 0: SetPause(false); break;
-            case 1: SceneManager.LoadScene("MainMenu");
+            case 0: break;
+            case 1: 
                 break;
         }
     }
-
     void MoveSelector(bool up)
     {
-        if(up)
+        if (up)
         {
             _cursorPosition--;
             if (_cursorPosition < 0)
@@ -78,31 +83,20 @@ public class PauseMenu : MonoBehaviour
         UpdateCursor();
     }
 
+    void SoundVolume(int amount)
+    {
+        if(_cursorPosition == 1)
+        {
+            _soundVolumeDec = Mathf.Clamp(amount + _soundVolumeDec, 0, 9);
+            if (_VolumeDisplay)
+            {
+                _VolumeDisplay.text = _soundVolumeDec.ToString();
+            }
+        }
+    }
+
     void UpdateCursor()
     {
         _Cursor.transform.position = _Options[_cursorPosition].transform.position + _cursorOffset;
-    }
-
-    public void TogglePause()
-    {
-        SetPause(!_isPaused);
-    }
-
-    public void SetPause(bool state)
-    {
-        if (_isPaused != state)
-        {
-            if (state)
-            {
-                Time.timeScale = 0;
-                if (PauseText) { PauseText.gameObject.SetActive(true); }
-            }
-            else
-            {
-                Time.timeScale = 1;
-                if (PauseText) { PauseText.gameObject.SetActive(false); }
-            }
-            _isPaused = state;
-        }
     }
 }
