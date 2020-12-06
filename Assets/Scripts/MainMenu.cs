@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class MainMenu : MonoBehaviour
 {
@@ -22,12 +23,16 @@ public class MainMenu : MonoBehaviour
     [SerializeField]
     TextMeshProUGUI _VolumeDisplay;
 
+    [SerializeField]
+    string PlayScene = "SampleScene";
+
     // Start is called before the first frame update
     void Start()
     {
         if (_Options.Count > 0)
             _cursorOffset = _Cursor.transform.position - _Options[0].transform.position;
-
+        // TODO: Move to coroutine to start after 1/2 sec?
+        AudioManager.Play("Theme");
     }
 
     // Update is called once per frame
@@ -57,7 +62,8 @@ public class MainMenu : MonoBehaviour
     {
         switch (_cursorPosition)
         {
-            case 0: break;
+            case 0: SceneManager.LoadScene("SampleScene");
+                break;
             case 1: 
                 break;
         }
