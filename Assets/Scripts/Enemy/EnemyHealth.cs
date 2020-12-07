@@ -5,6 +5,7 @@ using UnityEngine;
 [RequireComponent(typeof(Animator))]
 [RequireComponent(typeof(Rigidbody2D))]
 [RequireComponent(typeof(CapsuleCollider2D))]
+[RequireComponent(typeof(SpriteRenderer))]
 public class EnemyHealth : MonoBehaviour
 {
     [SerializeField]
@@ -24,8 +25,17 @@ public class EnemyHealth : MonoBehaviour
     public bool Active { get { return _isActive; } 
         set { 
             _isActive = value;
-            _currentHealth = 1;
-            if (_anim) { _anim.SetBool("Dead", false); }
+            if (value)
+            {
+                _currentHealth = 1;
+                _cc.enabled = true;
+                if (_anim) { _anim.SetBool("Dead", false); }
+                if (_sr) { _sr.enabled = true; }
+            }
+            else {
+                _cc.enabled = false;
+                if (_sr) { _sr.enabled = false; }
+            }
             //OnActiveChange.Invoke(_isActive);
         } 
     }
@@ -34,9 +44,15 @@ public class EnemyHealth : MonoBehaviour
     public ActivationDelegate OnActiveChange;
 
     private Animator _anim;
+    private CapsuleCollider2D _cc;
+    private Rigidbody2D _rb;
+    private SpriteRenderer _sr;
     private void Start()
     {
         _anim = GetComponent<Animator>();
+        _rb = GetComponent<Rigidbody2D>();
+        _cc = GetComponent<CapsuleCollider2D>();
+        _sr = GetComponent<SpriteRenderer>();
         _currentHealth = _Health;
     }
 
@@ -54,6 +70,8 @@ public class EnemyHealth : MonoBehaviour
     {
         Active = false;
         _anim.SetBool("Dead", true);
+        _cc.enabled = false;
+        
         AudioManager.Play("EnemyDie");
     }
 }

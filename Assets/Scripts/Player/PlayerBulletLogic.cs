@@ -27,7 +27,7 @@ public class PlayerBulletLogic : MonoBehaviour
 
         // Check for enemy
         EnemyHealth eh = collision.gameObject.GetComponent<EnemyHealth>();
-        if (eh)
+        if (eh && eh.Active)
         {
             eh.DealDamage(damage);
             Destroy(this.gameObject);

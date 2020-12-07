@@ -11,6 +11,7 @@ public class Pickup_PDW : MonoBehaviour
         if (ps && !ps.isActiveAndEnabled)
         {
             ps.enabled = true;
+            AudioManager.Play("Fall");
             Destroy(this.gameObject);
         }
     }
