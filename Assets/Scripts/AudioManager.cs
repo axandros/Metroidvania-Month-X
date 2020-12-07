@@ -77,6 +77,7 @@ public class AudioManager : MonoBehaviour
         if (_instance)
         {
             if (index < _instance._GameSounds.Count
+                && index >= 0
                 && _instance._GameSounds[index] != null
                 && _instance._GameSounds[index].Source != null)
             {

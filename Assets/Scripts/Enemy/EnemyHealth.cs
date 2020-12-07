@@ -28,15 +28,15 @@ public class EnemyHealth : MonoBehaviour
             if (value)
             {
                 _currentHealth = 1;
-                _cc.enabled = true;
+                if (_cc) { _cc.enabled = true; }
                 if (_anim) { _anim.SetBool("Dead", false); }
                 if (_sr) { _sr.enabled = true; }
             }
             else {
-                _cc.enabled = false;
+                if (_cc) { _cc.enabled = false; }
                 if (_sr) { _sr.enabled = false; }
             }
-            //OnActiveChange.Invoke(_isActive);
+            if (OnActiveChange != null) { OnActiveChange.Invoke(_isActive); }
         } 
     }
 
@@ -47,6 +47,8 @@ public class EnemyHealth : MonoBehaviour
     private CapsuleCollider2D _cc;
     private Rigidbody2D _rb;
     private SpriteRenderer _sr;
+
+
     private void Start()
     {
         _anim = GetComponent<Animator>();

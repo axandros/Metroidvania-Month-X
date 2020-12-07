@@ -53,12 +53,14 @@ public class WalkBehavior : MonoBehaviour
 
     private void OnActiveChange(bool setActive)
     {
+        Debug.Log("OnActiveChanged Called");
         if (setActive)
         {
-
+            rb.gravityScale = 9.81f;
         }
         else
         {
+            rb.gravityScale = 0;
             rb.velocity = Vector2.zero;   
         }
         bc.enabled = setActive;
