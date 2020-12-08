@@ -53,12 +53,14 @@ public class WalkBehavior : MonoBehaviour
 
     private void OnActiveChange(bool setActive)
     {
+        Debug.Log("OnActiveChanged Called");
         if (setActive)
         {
-
+            rb.gravityScale = 9.81f;
         }
         else
         {
+            rb.gravityScale = 0;
             rb.velocity = Vector2.zero;   
         }
         bc.enabled = setActive;
@@ -71,7 +73,7 @@ public class WalkBehavior : MonoBehaviour
             IsGrounded();   // Sets foot checks
             bool FootCheck = !LeftFootCheck ^ !RightFootCheck;// ^ is exclusive OR, or XOR | Is only 1 foot off the platform?
             bool Wall = CheckForBlocking(_EnemyLayer | _GroundLayer); // Is there a wall in front of us?
-            bool Room = CheckIsInRoom(); // Are we in the room?
+            bool Room = !CheckIsInRoom(); // Are we in the room?
             if (_MovementDebug) { Debug.Log("Movement Check flags: " + FootCheck + ", " + Wall + ", " + Room); }
             if ( FootCheck || Wall || Room) 
             {
@@ -160,7 +162,7 @@ public class WalkBehavior : MonoBehaviour
 
     bool CheckIsInRoom()
     {
-        Debug.Log("Assigned Room: " + RoomAssigned);
+        //Debug.Log("Assigned Room: " + RoomAssigned);
         bool ret = false;
         float rayDistance = 0.2f;
         float height = bc.bounds.size.y;
@@ -169,7 +171,7 @@ public class WalkBehavior : MonoBehaviour
         Vector2 BodyRight = new Vector2(pos.x + side, pos.y);
         Vector2 BodyLeft = new Vector2(pos.x - side, pos.y);
         RaycastHit2D LeftBodyCheck = Physics2D.Raycast(BodyLeft, -Vector2.right, rayDistance, _RoomLayer);
-        RaycastHit2D RightBodyCheck = Physics2D.Raycast(BodyRight, -Vector2.right, rayDistance, _RoomLayer);
+        RaycastHit2D RightBodyCheck = Physics2D.Raycast(BodyRight, Vector2.right, rayDistance, _RoomLayer);
         if (LeftBodyCheck && RightBodyCheck && RoomAssigned)
         {
             Room LeftRoom = LeftBodyCheck.collider.gameObject.GetComponent<Room>();
