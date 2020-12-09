@@ -21,17 +21,21 @@ public class AudioManager : MonoBehaviour
     private List<Sound> _GameSounds;
 
     private static AudioManager _instance;
+    [Range(0,9)]
+    public int Volume = 5;
 
     private void Awake()
     {
         if(_instance != null)
         {
+            _instance.UpdateVolume();
             Destroy(this);
             return;
         }
         else
         {
             _instance = this;
+            _instance.UpdateVolume();
             DontDestroyOnLoad(this);
         }
         foreach(Sound s in _GameSounds)
@@ -45,6 +49,19 @@ public class AudioManager : MonoBehaviour
             }
         }
         
+    }
+
+    void UpdateVolume()
+    {
+        float vol = this.Volume / 9.0f;
+        Debug.Log("Setting volume to: " + vol);
+        AudioListener.volume = vol; 
+    }
+
+    public static void SetVolume(int i)
+    {
+        _instance.Volume = Mathf.Clamp(i, 0, 9);
+        _instance.UpdateVolume();
     }
 
     public static int GetIndex(string clipName)
@@ -73,7 +90,6 @@ public class AudioManager : MonoBehaviour
 
     public static void Play(int index)
     {
-
         if (_instance)
         {
             if (index < _instance._GameSounds.Count
@@ -82,6 +98,27 @@ public class AudioManager : MonoBehaviour
                 && _instance._GameSounds[index].Source != null)
             {
                 _instance._GameSounds[index].Source.Play();
+            }
+        }
+    }
+
+    public static void Stop(string clipName)
+    {
+        int i = GetIndex(clipName);
+        Stop(i);
+    }
+
+    public static void Stop(int index)
+    {
+
+        if (_instance)
+        {
+            if (index < _instance._GameSounds.Count
+                && index >= 0
+                && _instance._GameSounds[index] != null
+                && _instance._GameSounds[index].Source != null)
+            {
+                _instance._GameSounds[index].Source.Stop();
             }
         }
     }

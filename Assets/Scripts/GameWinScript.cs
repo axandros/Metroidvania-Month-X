@@ -15,6 +15,7 @@ public class GameWinScript : MonoBehaviour
             // Remove Player Control
             ph.enabled = false;
             // Play Win Sound
+            AudioManager.Stop("Theme");
             AudioManager.Play("Win");
             // Open win Screen
             if (_WinScreen) {

@@ -376,7 +376,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7557058245442647009, guid: 6abe70f68b78b4f488e53b6d2918ac1b, type: 3}
       propertyPath: _GameSounds.Array.data[4].Volume
-      value: 0.49
+      value: 0.24
+      objectReference: {fileID: 0}
+    - target: {fileID: 7557058245442647009, guid: 6abe70f68b78b4f488e53b6d2918ac1b, type: 3}
+      propertyPath: _GameSounds.Array.data[5].Volume
+      value: 0.84
       objectReference: {fileID: 0}
     - target: {fileID: 7557058245442647022, guid: 6abe70f68b78b4f488e53b6d2918ac1b, type: 3}
       propertyPath: m_Name
