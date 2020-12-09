@@ -6,18 +6,28 @@ using UnityEngine;
 public class GameWinScript : MonoBehaviour
 {
     [SerializeField]
-    GameObject _WinScreen;
+    CanvasGroup _WinScreen;
     private void OnTriggerEnter2D(Collider2D collision)
     {
         PlatformerCharacter ph = collision.gameObject.GetComponent<PlatformerCharacter>();
-        if(ph != null)
+        if (ph != null)
         {
             // Remove Player Control
             ph.enabled = false;
             // Play Win Sound
             AudioManager.Play("Win");
             // Open win Screen
-            if (_WinScreen) { _WinScreen.SetActive(true); }
+            if (_WinScreen) {
+                StartCoroutine(Enlighten());
+                    }
+        }
+    }
+
+    IEnumerator Enlighten(){
+        while (_WinScreen.alpha < 1)
+        {
+            _WinScreen.alpha += 0.22f;
+            yield return new WaitForSeconds(0.2f);
         }
     }
 }

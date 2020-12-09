@@ -934,11 +934,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1989389987301759050, guid: 09803751506ecf04eb0af4826a1de319, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -8.77
+      value: 3.54
       objectReference: {fileID: 0}
     - target: {fileID: 1989389987301759050, guid: 09803751506ecf04eb0af4826a1de319, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 6.58
+      value: 9.94
       objectReference: {fileID: 0}
     - target: {fileID: 1989389987301759050, guid: 09803751506ecf04eb0af4826a1de319, type: 3}
       propertyPath: m_LocalPosition.z
@@ -7621,7 +7621,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 49a58cc56ab6ebc42ab922f7ef84ac98, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _WinScreen: {fileID: 1449919851}
+  _WinScreen: {fileID: 1449919853}
 --- !u!1 &1449919851
 GameObject:
   m_ObjectHideFlags: 0
@@ -7631,13 +7631,14 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1449919852}
+  - component: {fileID: 1449919853}
   m_Layer: 5
   m_Name: GameWinScreen
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1449919852
 RectTransform:
   m_ObjectHideFlags: 0
@@ -7659,6 +7660,18 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: -860, y: -416}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!225 &1449919853
+CanvasGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1449919851}
+  m_Enabled: 1
+  m_Alpha: 0
+  m_Interactable: 1
+  m_BlocksRaycasts: 1
+  m_IgnoreParentGroups: 0
 --- !u!1001 &1474143020
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -9377,6 +9390,14 @@ PrefabInstance:
     - target: {fileID: 7557058245442647008, guid: 6abe70f68b78b4f488e53b6d2918ac1b, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7557058245442647009, guid: 6abe70f68b78b4f488e53b6d2918ac1b, type: 3}
+      propertyPath: _GameSounds.Array.data[4].Volume
+      value: 0.63
+      objectReference: {fileID: 0}
+    - target: {fileID: 7557058245442647009, guid: 6abe70f68b78b4f488e53b6d2918ac1b, type: 3}
+      propertyPath: _GameSounds.Array.data[5].Volume
+      value: 0.81
       objectReference: {fileID: 0}
     - target: {fileID: 7557058245442647022, guid: 6abe70f68b78b4f488e53b6d2918ac1b, type: 3}
       propertyPath: m_Name
