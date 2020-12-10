@@ -18,7 +18,7 @@ public class MainMenu : MonoBehaviour
     Vector3 _cursorOffset;
 
     int _cursorPosition = 0;
-    float _soundVolumeDec = 9;
+    int _soundVolumeDec = 5;
 
     [SerializeField]
     TextMeshProUGUI _VolumeDisplay;
@@ -98,6 +98,7 @@ public class MainMenu : MonoBehaviour
             {
                 _VolumeDisplay.text = _soundVolumeDec.ToString();
             }
+            AudioManager.SetVolume(_soundVolumeDec);
         }
     }
 
