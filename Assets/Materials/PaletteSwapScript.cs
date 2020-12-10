@@ -30,7 +30,12 @@ public class PaletteSwapScript : MonoBehaviour
             return _mpb;
         }
    }
+    private void Awake()
+    {
+        _ren = GetComponent<Renderer>();
 
+        ApplyTex(_MainPalette);
+    }
 
     private void OnValidate()
     {
@@ -54,6 +59,7 @@ public class PaletteSwapScript : MonoBehaviour
 
     public void Flash(string tag, float speed, float duration)
     {
+        /*
         foreach(Palette p in PaletteList)
         {
             if (p.name == tag)
@@ -62,14 +68,17 @@ public class PaletteSwapScript : MonoBehaviour
                 break;
             }
         }
+        */
     }
 
     public void Flash(Texture2D tex, float speed, float duration)
     {
+        /*
         if (FlashCoroutineRunning == false)
         {
             StartCoroutine(PaletteShiftFlash(tex, speed, duration));
         }
+        */
     }
 
     private IEnumerator PaletteShiftFlash(Texture2D tex, float speed, float duration)

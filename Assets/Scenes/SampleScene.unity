@@ -900,7 +900,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 87eebfd3b936dcd4cafa8e36e2742319, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _MainPalette: {fileID: 2800000, guid: d4f522ed06a675c46bd4b54b541634da, type: 3}
+  _MainPalette: {fileID: 2800000, guid: 86bdc452cccd03e4b89ff32cb89e496e, type: 3}
   PaletteList:
   - texture: {fileID: 2800000, guid: 86bdc452cccd03e4b89ff32cb89e496e, type: 3}
     name: Hurt
@@ -1149,7 +1149,7 @@ TilemapRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 6395afd8fe349404991bb97be0a54183, type: 2}
+  - {fileID: 2100000, guid: 0226f30ea19cdee45b0327e895e6c27b, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -7325,7 +7325,7 @@ TilemapRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 6395afd8fe349404991bb97be0a54183, type: 2}
+  - {fileID: 2100000, guid: 0226f30ea19cdee45b0327e895e6c27b, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -8564,7 +8564,7 @@ TilemapRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 6395afd8fe349404991bb97be0a54183, type: 2}
+  - {fileID: 2100000, guid: 0226f30ea19cdee45b0327e895e6c27b, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -8602,7 +8602,7 @@ Tilemap:
   m_GameObject: {fileID: 2092172388}
   m_Enabled: 1
   m_Tiles:
-  - first: {x: 6, y: -3, z: 0}
+  - first: {x: 5, y: -3, z: 0}
     second:
       serializedVersion: 2
       m_TileIndex: 1
@@ -8622,7 +8622,7 @@ Tilemap:
       m_TileObjectToInstantiateIndex: 65535
       dummyAlignment: 0
       m_AllTileFlags: 1073741825
-  - first: {x: 6, y: -2, z: 0}
+  - first: {x: 5, y: -2, z: 0}
     second:
       serializedVersion: 2
       m_TileIndex: 1
@@ -8642,7 +8642,7 @@ Tilemap:
       m_TileObjectToInstantiateIndex: 65535
       dummyAlignment: 0
       m_AllTileFlags: 1073741825
-  - first: {x: 6, y: -1, z: 0}
+  - first: {x: 5, y: -1, z: 0}
     second:
       serializedVersion: 2
       m_TileIndex: 1
@@ -8662,7 +8662,7 @@ Tilemap:
       m_TileObjectToInstantiateIndex: 65535
       dummyAlignment: 0
       m_AllTileFlags: 1073741825
-  - first: {x: 6, y: 0, z: 0}
+  - first: {x: 5, y: 0, z: 0}
     second:
       serializedVersion: 2
       m_TileIndex: 1
@@ -8682,7 +8682,7 @@ Tilemap:
       m_TileObjectToInstantiateIndex: 65535
       dummyAlignment: 0
       m_AllTileFlags: 1073741825
-  - first: {x: 6, y: 1, z: 0}
+  - first: {x: 5, y: 1, z: 0}
     second:
       serializedVersion: 2
       m_TileIndex: 1
@@ -8702,7 +8702,7 @@ Tilemap:
       m_TileObjectToInstantiateIndex: 65535
       dummyAlignment: 0
       m_AllTileFlags: 1073741825
-  - first: {x: 6, y: 2, z: 0}
+  - first: {x: 5, y: 2, z: 0}
     second:
       serializedVersion: 2
       m_TileIndex: 1
@@ -8722,7 +8722,7 @@ Tilemap:
       m_TileObjectToInstantiateIndex: 65535
       dummyAlignment: 0
       m_AllTileFlags: 1073741825
-  - first: {x: 6, y: 3, z: 0}
+  - first: {x: 5, y: 3, z: 0}
     second:
       serializedVersion: 2
       m_TileIndex: 1
@@ -8742,7 +8742,7 @@ Tilemap:
       m_TileObjectToInstantiateIndex: 65535
       dummyAlignment: 0
       m_AllTileFlags: 1073741825
-  - first: {x: 6, y: 4, z: 0}
+  - first: {x: 5, y: 4, z: 0}
     second:
       serializedVersion: 2
       m_TileIndex: 1
@@ -8762,7 +8762,7 @@ Tilemap:
       m_TileObjectToInstantiateIndex: 65535
       dummyAlignment: 0
       m_AllTileFlags: 1073741825
-  - first: {x: 6, y: 5, z: 0}
+  - first: {x: 5, y: 5, z: 0}
     second:
       serializedVersion: 2
       m_TileIndex: 1
@@ -8979,7 +8979,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 87eebfd3b936dcd4cafa8e36e2742319, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _MainPalette: {fileID: 0}
+  _MainPalette: {fileID: 2800000, guid: e23e53f053b736e45997d120db94e987, type: 3}
   PaletteList: []
 --- !u!1 &2097094534
 GameObject:
@@ -9148,7 +9148,7 @@ PrefabInstance:
     - target: {fileID: 1989389987301759051, guid: 09803751506ecf04eb0af4826a1de319, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 2100000, guid: 6395afd8fe349404991bb97be0a54183, type: 2}
+      objectReference: {fileID: 2100000, guid: 0226f30ea19cdee45b0327e895e6c27b, type: 2}
     - target: {fileID: 1989389987301759053, guid: 09803751506ecf04eb0af4826a1de319, type: 3}
       propertyPath: m_Name
       value: Zombie
@@ -9221,6 +9221,18 @@ PrefabInstance:
     - target: {fileID: 4964868604745688516, guid: b5f4b4f4349431743b04a81b2b953fff, type: 3}
       propertyPath: m_Name
       value: Pixel Camera
+      objectReference: {fileID: 0}
+    - target: {fileID: 4964868604745688519, guid: b5f4b4f4349431743b04a81b2b953fff, type: 3}
+      propertyPath: m_BackGroundColor.b
+      value: 0.54179424
+      objectReference: {fileID: 0}
+    - target: {fileID: 4964868604745688519, guid: b5f4b4f4349431743b04a81b2b953fff, type: 3}
+      propertyPath: m_BackGroundColor.g
+      value: 0.77716494
+      objectReference: {fileID: 0}
+    - target: {fileID: 4964868604745688519, guid: b5f4b4f4349431743b04a81b2b953fff, type: 3}
+      propertyPath: m_BackGroundColor.r
+      value: 0.8396226
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b5f4b4f4349431743b04a81b2b953fff, type: 3}
@@ -9322,7 +9334,7 @@ PrefabInstance:
     - target: {fileID: 6019024472068159405, guid: 0d9edd7eae6f67d4c9eda6338636d643, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 2100000, guid: 6395afd8fe349404991bb97be0a54183, type: 2}
+      objectReference: {fileID: 2100000, guid: 0226f30ea19cdee45b0327e895e6c27b, type: 2}
     - target: {fileID: 6019024472068159406, guid: 0d9edd7eae6f67d4c9eda6338636d643, type: 3}
       propertyPath: m_Mass
       value: 20
