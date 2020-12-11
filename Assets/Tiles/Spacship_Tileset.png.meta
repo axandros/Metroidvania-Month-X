@@ -4,34 +4,34 @@ TextureImporter:
   internalIDToNameTable:
   - first:
       213: -3865587192289161823
-    second: Spacship_Tile_OuterCornerTL
+    second: Sign_Z
   - first:
       213: 87981403176284830
     second: Spacship_Tile_OuterEdgeTop
   - first:
       213: 4053904378278053380
-    second: Spacship_Tile_OuterCornerTR
+    second: Sign_X
   - first:
       213: -1017873688487787547
-    second: Spacship_Tile_InnerCorner
+    second: Sign_Jump_0
   - first:
       213: -8701590932512185459
-    second: Spacship_Tile_InnerEdgeBottom
+    second: Sign_Shoot_0
   - first:
       213: -486764393642614584
-    second: Spacship_Tile_InnerCornerTR
+    second: Sign_Jump_1
   - first:
       213: -346611025229825069
-    second: Spacship_Pipe_CornerBR
+    second: Sign_Jump_2
   - first:
       213: -1099086203703450676
-    second: Spacship_Pipe_Horizontal
+    second: Sign_Shoot_1
   - first:
       213: 7698530478263336062
-    second: Spacship_Pipe_CornerBL
+    second: Sign_Shoot_2
   - first:
       213: 2925188693708715202
-    second: Spacship_Pipe_JunctionLeft
+    second: Sign_Jump_3
   - first:
       213: -251394223210686130
     second: Spacship_Pipe_JunctionTop
@@ -79,7 +79,7 @@ TextureImporter:
     second: Spacship_Tile_OuterCornerBR
   - first:
       213: 3919608338224011850
-    second: Spacship_Tile_InnerCornerTR
+    second: Sign_Jump_1
   - first:
       213: 2618873041987402366
     second: Spacship_Tile_InnerEdgeTop
@@ -97,34 +97,34 @@ TextureImporter:
     second: Spacship_Pipe_CornerTL
   - first:
       213: -9163507035185868808
-    second: Spacship_Tile_OuterCornerTL
+    second: Sign_Z
   - first:
       213: -3632964394448686012
     second: Spacship_Tile_OuterEdgeTop
   - first:
       213: 6796558533458467327
-    second: Spacship_Tile_OuterCornerTR
+    second: Sign_X
   - first:
       213: -8219444106446065328
-    second: Spacship_Tile_InnerCorner
+    second: Sign_Jump_0
   - first:
       213: -3842571371018472463
-    second: Spacship_Tile_InnerEdgeBottom
+    second: Sign_Shoot_0
   - first:
       213: -2239357505950145860
-    second: Spacship_Tile_InnerCornerTR
+    second: Sign_Jump_1
   - first:
       213: -7508872214547422396
-    second: Spacship_Pipe_CornerBR
+    second: Sign_Jump_2
   - first:
       213: 3470927627505130333
-    second: Spacship_Pipe_Horizontal
+    second: Sign_Shoot_1
   - first:
       213: -8786734341365646005
-    second: Spacship_Pipe_CornerBL
+    second: Sign_Shoot_2
   - first:
       213: -342418639641881321
-    second: Spacship_Pipe_JunctionLeft
+    second: Sign_Jump_3
   - first:
       213: 8387382689402843722
     second: Spacship_Pipe_JunctionTop
@@ -172,7 +172,7 @@ TextureImporter:
     second: Spacship_Tile_OuterCornerBR
   - first:
       213: 2350877408889719100
-    second: Spacship_Tile_InnerCornerTR
+    second: Sign_Jump_1
   - first:
       213: 9178798023908103566
     second: Spacship_Tile_InnerEdgeTop
@@ -217,7 +217,7 @@ TextureImporter:
     second: Spacship_Tile_SingleHorizontal
   - first:
       213: -9163507035185868808
-    second: Spacship_Tile_OuterCornerTL
+    second: Sign_Z
   - first:
       213: -7881751667673434106
     second: Spacship_Tile_innerJunctionRight
@@ -238,7 +238,7 @@ TextureImporter:
     second: Spacship_Ladder
   - first:
       213: -3865587192289161823
-    second: Spacship_Tile_OuterCornerTL
+    second: Sign_Z
   - first:
       213: -3632964394448686012
     second: Spacship_Tile_OuterEdgeTop
@@ -247,7 +247,7 @@ TextureImporter:
     second: Spacship_Tile_OuterEdgeTop
   - first:
       213: 6796558533458467327
-    second: Spacship_Tile_OuterCornerTR
+    second: Sign_X
   - first:
       213: -8219444106446065328
     second: Spacship_Tile_InnerCornerTL
@@ -265,7 +265,7 @@ TextureImporter:
     second: Spacship_Pipe_IntersectionLeft
   - first:
       213: -5556980028528864911
-    second: Spacship_Tile_OuterCornerTL
+    second: Sign_Z
   - first:
       213: 87981403176284830
     second: Spacship_Tile_OuterEdgeTop
@@ -313,7 +313,7 @@ TextureImporter:
     second: Spacship_Tile_InnerCornerBL
   - first:
       213: 9178798023908103566
-    second: Spacship_Tile_InnerEdgeBottom
+    second: Sign_Shoot_0
   - first:
       213: -7364344424116492620
     second: Spacship_Tile_InnerCornerBR
@@ -322,10 +322,10 @@ TextureImporter:
     second: Spacship_Pipe_IntersectionAll
   - first:
       213: -8578588429734023160
-    second: Spacship_Pipe_CornerBL
+    second: Sign_Shoot_2
   - first:
       213: 6655900242016442227
-    second: Spacship_Pipe_CornerBR
+    second: Sign_Jump_2
   - first:
       213: 2951552073118098412
     second: Spacship_Pipe_EndLeft
@@ -1534,6 +1534,195 @@ TextureImporter:
       bones: []
       spriteID: 91175c3d97a18bc60800000000000000
       internalID: 7834040662357274905
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sign_Z
+      rect:
+        serializedVersion: 2
+        x: 96
+        y: 16
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1ad0e4bedecaa5ac0800000000000000
+      internalID: -3865587192289161823
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sign_X
+      rect:
+        serializedVersion: 2
+        x: 96
+        y: 0
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4060aa4bd8c524830800000000000000
+      internalID: 4053904378278053380
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sign_Jump_0
+      rect:
+        serializedVersion: 2
+        x: 112
+        y: 16
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5e30873f549cfd1f0800000000000000
+      internalID: -1017873688487787547
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sign_Shoot_0
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 32
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d83e9de562dbd3780800000000000000
+      internalID: -8701590932512185459
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sign_Jump_1
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 16
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8c0af9bec5aae39f0800000000000000
+      internalID: -486764393642614584
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sign_Jump_2
+      rect:
+        serializedVersion: 2
+        x: 144
+        y: 16
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3db31f5eb17903bf0800000000000000
+      internalID: -346611025229825069
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sign_Shoot_1
+      rect:
+        serializedVersion: 2
+        x: 144
+        y: 32
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cc329b2cbe24fb0f0800000000000000
+      internalID: -1099086203703450676
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sign_Shoot_2
+      rect:
+        serializedVersion: 2
+        x: 160
+        y: 32
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e7c77617eaca6da60800000000000000
+      internalID: 7698530478263336062
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sign_Jump_3
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 0
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2c43f7d5e9b589820800000000000000
+      internalID: 2925188693708715202
       vertices: []
       indices: 
       edges: []

@@ -110,10 +110,10 @@ public class PlatformerCharacter : MonoBehaviour
         }
 
         if (leftCheck || rightCheck) { ret = true;  }
-        else
+        else if(!_onLadder)
         {
             //_anim.SetBool("InAir", true);
-            //_anim.Play("Girl_Jump");
+            _anim.Play("Girl_Jump");
         }
 
         return ret;
@@ -206,7 +206,10 @@ public class PlatformerCharacter : MonoBehaviour
         _knockbackInitialGravity = CalculateGravity(_KnockbackHeight, vx, _KnockbackDistance / 2);
         _rb.gravityScale = _GravityModifierFalling * _jumpGravityScale;
 
-        Debug.Log("Jump Velocity: " + _jumpUpVelocity);
+        _anim.Play("Girl_Jump");
+
+        //Debug.Log("Jump Velocity: " + _jumpUpVelocity);
+
     }
 
 

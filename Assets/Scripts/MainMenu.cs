@@ -22,9 +22,14 @@ public class MainMenu : MonoBehaviour
 
     [SerializeField]
     TextMeshProUGUI _VolumeDisplay;
+    [SerializeField]
+    TextMeshProUGUI _ResolutionDisplay;
 
     [SerializeField]
     string PlayScene = "SampleScene";
+
+    int _resScale = 5;
+    bool _fullScreen = false;
 
     // Start is called before the first frame update
     void Start()
@@ -48,13 +53,19 @@ public class MainMenu : MonoBehaviour
         }
         else if (Input.GetKeyDown(KeyCode.RightArrow) || Input.GetKeyDown(KeyCode.D)){
             SoundVolume(1);
+            ResolutionUpdate(1);
         }
         else if (Input.GetKeyDown(KeyCode.LeftArrow) || Input.GetKeyDown(KeyCode.A)){
             SoundVolume(-1);
+            ResolutionUpdate(-1);
         }
         else if (Input.GetKeyDown(KeyCode.Return))
         {
             Select();
+        }
+        else if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            Application.Quit();
         }
     }
 
@@ -67,6 +78,12 @@ public class MainMenu : MonoBehaviour
             case 1: 
                 break;
             case 2:
+                break;
+            case 3:
+                _fullScreen = !_fullScreen;
+                ScreenChange();
+                break;
+            case 4:
                 Application.Quit();
                 break;
         }
@@ -92,11 +109,11 @@ public class MainMenu : MonoBehaviour
         UpdateCursor();
     }
 
-    void SoundVolume(int amount)
+    void SoundVolume(int changeAmount)
     {
         if(_cursorPosition == 1)
         {
-            _soundVolumeDec = Mathf.Clamp(amount + _soundVolumeDec, 0, 9);
+            _soundVolumeDec = Mathf.Clamp(changeAmount + _soundVolumeDec, 0, 9);
             if (_VolumeDisplay)
             {
                 _VolumeDisplay.text = _soundVolumeDec.ToString();
@@ -108,5 +125,25 @@ public class MainMenu : MonoBehaviour
     void UpdateCursor()
     {
         _Cursor.transform.position = _Options[_cursorPosition].transform.position + _cursorOffset;
+    }
+
+    void ResolutionUpdate(int Changeamount)
+    {
+        if (_cursorPosition == 2)
+        {
+            _resScale = Mathf.Clamp(_resScale + Changeamount, 1, 12);
+            if (_ResolutionDisplay)
+            {
+                _ResolutionDisplay.text = _resScale.ToString();
+            }
+            ScreenChange();
+        }
+    }
+
+    void ScreenChange()
+    {
+        int Width = 160 * _resScale;
+        int Height = 144 * _resScale;
+        Screen.SetResolution(Width, Height, _fullScreen);
     }
 }
