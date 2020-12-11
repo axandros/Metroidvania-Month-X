@@ -66,6 +66,9 @@ public class MainMenu : MonoBehaviour
                 break;
             case 1: 
                 break;
+            case 2:
+                Application.Quit();
+                break;
         }
     }
     void MoveSelector(bool up)
