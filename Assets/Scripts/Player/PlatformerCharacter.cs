@@ -189,7 +189,11 @@ public class PlatformerCharacter : MonoBehaviour
         } else
         {
             _anim.StopPlayback();
-            _anim.Play("Girl_Jump");
+            if (!_grounded)
+            {
+                _anim.Play("Girl_Jump");
+            }
+            
             Debug.Log("Ladder Lost");
             _onLadder = false;
             _rb.gravityScale = _jumpGravityScale * _GravityModifierFalling;
