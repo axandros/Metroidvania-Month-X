@@ -45,6 +45,8 @@ GameObject:
   - component: {fileID: 6019024472068159377}
   - component: {fileID: 6019024472068159407}
   - component: {fileID: 704273310}
+  - component: {fileID: 6448913964679546267}
+  - component: {fileID: 704273317}
   m_Layer: 8
   m_Name: Girl
   m_TagString: Player
@@ -86,7 +88,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: 0226f30ea19cdee45b0327e895e6c27b, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -130,7 +132,7 @@ Rigidbody2D:
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
-  m_Mass: 1
+  m_Mass: 20
   m_LinearDrag: 0
   m_AngularDrag: 0.05
   m_GravityScale: 1
@@ -172,7 +174,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _MoveSpeed: 3
   _JumpHeight: 2.5
-  _TimeToPeak: 0.75
+  _TimeToPeak: 0.62
   _GroundLayer:
     serializedVersion: 2
     m_Bits: 1024
@@ -186,7 +188,6 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 2048
   _DebugGroundCheck: 1
-  _lastJumpTime: 0
   _hasJumped: 0
   _jumpPressed: 0
   _jumpHeld: 0
@@ -222,3 +223,34 @@ MonoBehaviour:
   _SpawnOffset: {fileID: 270354156}
   _ShotCooldown: 0.25
   _BulletSpeed: 5
+--- !u!114 &6448913964679546267
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6019024472068159378}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 87eebfd3b936dcd4cafa8e36e2742319, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _MainPalette: {fileID: 2800000, guid: 86bdc452cccd03e4b89ff32cb89e496e, type: 3}
+  PaletteList:
+  - texture: {fileID: 2800000, guid: 86bdc452cccd03e4b89ff32cb89e496e, type: 3}
+    name: Hurt
+--- !u!114 &704273317
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6019024472068159378}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8413f3d30e57f30469b79ced5dbf48e0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _Health: 10
+  _IFrameDuration: 1.5
+  KnockbackDistance: 2

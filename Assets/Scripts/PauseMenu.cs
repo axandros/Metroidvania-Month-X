@@ -52,7 +52,9 @@ public class PauseMenu : MonoBehaviour
         switch (_cursorPosition)
         {
             case 0: SetPause(false); break;
-            case 1: SceneManager.LoadScene("MainMenu");
+            case 1:
+                Time.timeScale = 1;
+                SceneManager.LoadScene("MainMenu");
                 break;
         }
     }

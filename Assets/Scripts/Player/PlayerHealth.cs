@@ -21,6 +21,7 @@ public class PlayerHealth : MonoBehaviour
     void Start()
     {
         _pc = GetComponent<PlatformerCharacter>();
+       
     }
 
     // Update is called once per frame

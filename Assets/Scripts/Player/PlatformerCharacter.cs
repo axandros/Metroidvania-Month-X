@@ -226,6 +226,7 @@ public class PlatformerCharacter : MonoBehaviour
         _anim.Play("Girl_Jump");
 
         //Debug.Log("Jump Velocity: " + _jumpUpVelocity);
+    
 
     }
 
@@ -263,6 +264,10 @@ public class PlatformerCharacter : MonoBehaviour
                 // "fall"back 
                 _rb.gravityScale = _jumpGravityScale * _GravityModifierFalling;
             }
+        }
+        else
+        {
+            Debug.Log("Time scale 0!");
         }
     }
 

@@ -33,9 +33,12 @@ public class Room : MonoBehaviour
 
     private BoxCollider2D _roomCollider;
 
+    static CameraFollow _cf = null;
+
     // Start is called before the first frame update
     void Awake()
     {
+        if(_cf == null) { _cf = Camera.main.GetComponent<CameraFollow>(); }
         _roomCollider = GetComponent<BoxCollider2D>();
         _roomCollider.size = Extents;
         _camFollow = Camera.main.GetComponent<CameraFollow>();
@@ -55,7 +58,23 @@ public class Room : MonoBehaviour
                 eh.RoomAssigned = this;
                 eh.Active = false;
             }
+            /*
+            else
+            {
+                PlatformerCharacter pc = c.GetComponent<PlatformerCharacter>();
+                if (pc && _cf)
+                {
+                    _cf.SetRoom(this);
+                }
+                
+            }
+            */
         }
+    }
+
+    private void Start()
+    {
+        
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
