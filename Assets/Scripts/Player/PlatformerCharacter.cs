@@ -165,6 +165,14 @@ public class PlatformerCharacter : MonoBehaviour
             Debug.Log("Playing animation Climb");
             _anim.Play("Girl_Climb");
             Debug.Log("Ladder Found");
+            if(_verticalInput== 0)
+            {
+                _anim.StartPlayback();
+            }
+            else
+            {
+                _anim.StopPlayback();
+            }
             // We found a ladder
             _onLadder = true;
             _rb.gravityScale = 0;
@@ -180,6 +188,7 @@ public class PlatformerCharacter : MonoBehaviour
 
         } else
         {
+            _anim.StopPlayback();
             _anim.Play("Girl_Jump");
             Debug.Log("Ladder Lost");
             _onLadder = false;
