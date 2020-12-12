@@ -134,7 +134,7 @@ public class PlatformerCharacter : MonoBehaviour
         _rb.velocity = new Vector2(horizontalOverride, _jumpUpVelocity);
         _rb.gravityScale = _jumpGravityScale;
 
-        _horAtJump = Input.GetAxis("Horizontal");
+        _horAtJump = Input.GetAxisRaw("Horizontal");
     }
     private void Jump()
     {
@@ -329,7 +329,8 @@ public class PlatformerCharacter : MonoBehaviour
         }
         else
         {
-            //_rb.velocity = new Vector2(_horAtJump * _MoveSpeed, _rb.velocity.y);
+            _rb.velocity = new Vector2(_horAtJump * _MoveSpeed, _rb.velocity.y);
+            Debug.Log("Hor at Jump: " + _horAtJump);
         }
 
     }
