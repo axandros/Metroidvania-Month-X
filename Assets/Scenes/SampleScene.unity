@@ -9440,6 +9440,10 @@ PrefabInstance:
       propertyPath: m_Mass
       value: 20
       objectReference: {fileID: 0}
+    - target: {fileID: 6019024472068159406, guid: 0d9edd7eae6f67d4c9eda6338636d643, type: 3}
+      propertyPath: m_Constraints
+      value: 4
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0d9edd7eae6f67d4c9eda6338636d643, type: 3}
 --- !u!1001 &7557058245439299160

@@ -280,7 +280,7 @@ public class PlatformerCharacter : MonoBehaviour
     void UpdateJump()
     {
         _lastJumpTime += Time.deltaTime;
-        //_rb.velocity = new Vector2(_horAtJump * _MoveSpeed, _rb.velocity.y);
+        
         if (_lastJumpTime >= 0.25)
         { 
 
@@ -326,6 +326,10 @@ public class PlatformerCharacter : MonoBehaviour
                 _anim.Play("Girl_Idle"); }
             if (_movementInput > 0 && !_facingRight) { Flip(); }
             else if (_movementInput < 0 && _facingRight) { Flip(); }
+        }
+        else
+        {
+            //_rb.velocity = new Vector2(_horAtJump * _MoveSpeed, _rb.velocity.y);
         }
 
     }
