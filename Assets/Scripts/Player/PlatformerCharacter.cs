@@ -81,6 +81,8 @@ public class PlatformerCharacter : MonoBehaviour
     [SerializeField]
     private bool _jumpHeld = false;
 
+    private float _horAtJump = 0;
+
     // ===== FUNCTIONS ====
 
     // --- Getters ---
@@ -131,6 +133,8 @@ public class PlatformerCharacter : MonoBehaviour
         _anim.Play("Girl_Jump");
         _rb.velocity = new Vector2(horizontalOverride, _jumpUpVelocity);
         _rb.gravityScale = _jumpGravityScale;
+
+        _horAtJump = Input.GetAxis("Horizontal");
     }
     private void Jump()
     {
@@ -276,6 +280,7 @@ public class PlatformerCharacter : MonoBehaviour
     void UpdateJump()
     {
         _lastJumpTime += Time.deltaTime;
+        //_rb.velocity = new Vector2(_horAtJump * _MoveSpeed, _rb.velocity.y);
         if (_lastJumpTime >= 0.25)
         { 
 
