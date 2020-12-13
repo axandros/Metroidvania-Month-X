@@ -3,29 +3,60 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Audio;
 
+/// <summary>
+/// A Serialized sound class to add sounds to the Sound Manager.
+/// </summary>
 [System.Serializable]
 public class Sound
 {
+    /// <summary>
+    /// The name of the sound clip.  This is what the mnager searches for when a string is passed. 
+    /// </summary>
     public string Name;
+    // The audio clip asset to be played.
+    /// <summary>
+    /// 
+    /// </summary>
     public AudioClip Clip;
+    // Should the clip loop automatically?
     public bool Loop;
-    [Range(0, 3)]
+    // What is the relative volume?
+    [Range(0, 1)]
     public float Volume = 1;
+
+    // The AudioSource that the Audio Manager generates.
     [HideInInspector]
     public AudioSource Source;
 }
 
+/// <summary>
+/// A Singleton class to manage audio across all scenes.
+/// Currently, additions made in one scene that are not included in the current active sudio manager will be lost,
+/// so all new sounds should be added to the prefab.
+/// </summary>
 public class AudioManager : MonoBehaviour
 {
+    /// <summary>
+    /// The list of sounds for the game.
+    /// </summary>
     [SerializeField]
     private List<Sound> _GameSounds;
 
+    /// <summary>
+    /// Singleton instance variable.
+    /// </summary>
     private static AudioManager _instance;
-    [Range(0,9)]
-    public int Volume = 5;
 
+    /// <summary>
+    /// The overall volume for all sounds.
+    /// </summary>
+    [Range(0,1)]
+    public float Volume = 1;
+
+    // Unity Awake method.  Called when activated.
     private void Awake()
     {
+        // Singleton handling.
         if(_instance != null)
         {
             _instance.UpdateVolume();
@@ -38,6 +69,8 @@ public class AudioManager : MonoBehaviour
             _instance.UpdateVolume();
             DontDestroyOnLoad(this);
         }
+
+        // Create Audio Source componenets.
         foreach(Sound s in _GameSounds)
         {
             if(s.Clip != null)
@@ -51,19 +84,28 @@ public class AudioManager : MonoBehaviour
         
     }
 
+    /// <summary> Function to change global volume. </summary>
+    /// <remarks>Currently just updates the Audio Listener.</remarks>
     void UpdateVolume()
     {
-        float vol = this.Volume / 9.0f;
-        Debug.Log("Setting volume to: " + vol);
-        AudioListener.volume = vol; 
+        //Debug.Log("Setting volume to: " + _instance.Volume);
+        AudioListener.volume = _instance.Volume; 
     }
 
-    public static void SetVolume(int i)
+    /// <summary>
+    /// Update the global volume.
+    /// </summary>
+    /// <param name="i">A value between 0 and 1. 0 is silent, 1 is full volume.</param>
+    public static void SetVolume(float i)
     {
-        _instance.Volume = Mathf.Clamp(i, 0, 9);
+        _instance.Volume = Mathf.Clamp(i, 0, 1);
         _instance.UpdateVolume();
     }
 
+    /// <summary>Get the index ID of the sound clip with the name. </summary>
+    /// <remarks>Used to more quickly fetch the sound.</remarks>
+    /// <param name="clipName">The string name of the clip to play.</param>
+    /// <returns>Sound Index ID</returns>
     public static int GetIndex(string clipName)
     {
         int i = -2;
@@ -82,12 +124,20 @@ public class AudioManager : MonoBehaviour
         return i;
     }
 
+    /// <summary>Play a sound with the given name. 
+    /// Does nothing if the sound does not exist. </summary>
+    /// <param name="clipName">The string name of the clip to play.</param>
     public static void Play(string clipName)
     {
         int i = GetIndex(clipName);
         Play(i);
     }
 
+    /// <summary>
+    /// Play the sound at the given index.
+    /// Does nothing if out of range.
+    /// </summary>
+    /// <param name="index">Sound Index ID</param>
     public static void Play(int index)
     {
         if (_instance)
@@ -102,12 +152,20 @@ public class AudioManager : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// Stop playing the sound with the given name.
+    /// </summary>
+    /// <param name="clipName">The string name of the clip to stop.</param>
     public static void Stop(string clipName)
     {
         int i = GetIndex(clipName);
         Stop(i);
     }
 
+    /// <summary>
+    /// Stop playing the sound at the given sound ID.
+    /// </summary>
+    /// <param name="index">The sound Index ID.</param>
     public static void Stop(int index)
     {
 

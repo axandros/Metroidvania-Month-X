@@ -118,7 +118,7 @@ public class MainMenu : MonoBehaviour
             {
                 _VolumeDisplay.text = _soundVolumeDec.ToString();
             }
-            AudioManager.SetVolume(_soundVolumeDec);
+            AudioManager.SetVolume(_soundVolumeDec/9.0f);
         }
     }
 
