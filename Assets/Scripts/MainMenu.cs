@@ -4,20 +4,40 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
+// This class will remain lightly documented.
+// TODO: Future projects using this as a base for menus shuold combine it and the Pause Menu for a base class.
+
+// Current Menu types:
+// Select - Execute a piece of code when pressed
+// Numeric Display - Execute code on left/right arrow presses and update the visual number.
 public class MainMenu : MonoBehaviour
 {
     [SerializeField]
     GameObject PauseText;
 
+    /// <summary>
+    /// The visual cursor object.  Typically a sprite, but can be whatever.
+    /// </summary>
     [SerializeField]
     GameObject _Cursor;
 
+    /// <summary>
+    /// A List of the Game Objects representing the different menu options.
+    /// </summary>
     [SerializeField]
     List<GameObject> _Options;
 
+    /// <summary>
+    /// Private vector the measure cursor offset.  User sets initial offset
+    /// </summary>
     Vector3 _cursorOffset;
 
+    /// <summary>
+    /// The current position of the cursor on the list.
+    /// </summary>
     int _cursorPosition = 0;
+
+
     int _soundVolumeDec = 5;
 
     [SerializeField]
@@ -40,9 +60,9 @@ public class MainMenu : MonoBehaviour
         AudioManager.Play("Theme");
     }
 
-    // Update is called once per frame
     void Update()
     {
+        // Manipulate the cursor.
         if (Input.GetKeyDown(KeyCode.UpArrow) || Input.GetKeyDown(KeyCode.W))
         {
             MoveSelector(true);
@@ -71,6 +91,7 @@ public class MainMenu : MonoBehaviour
 
     void Select()
     {
+        // Do something depending on cursor position.
         switch (_cursorPosition)
         {
             case 0: SceneManager.LoadScene("SampleScene");
@@ -88,6 +109,7 @@ public class MainMenu : MonoBehaviour
                 break;
         }
     }
+
     void MoveSelector(bool up)
     {
         if (up)

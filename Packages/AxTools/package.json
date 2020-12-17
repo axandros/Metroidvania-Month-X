@@ -1,0 +1,21 @@
+{
+  "name": "com.axandros.axtools",
+  "version": "0.1.0",
+  "displayName": "Ax Tools",
+  "description": "A collection of class created by Axandros (Tristan Brumagin) useful in most Unity Projects",
+  "unity": "2020.1",
+  "dependencies": {
+    "com.unity.render-pipelines.universal": "8.3.1"
+  },
+  "keywords": [
+    "tools",
+    "utility",
+    "axandros"
+  ],
+  "author": {
+    "name": "Tristan Brumagin",
+    "email": "brumagint@gmail.com",
+    "url": "https://axandros.itch.io"
+  },
+  "type": "commonjs"
+}
