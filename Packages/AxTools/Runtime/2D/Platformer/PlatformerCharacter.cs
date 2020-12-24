@@ -87,6 +87,12 @@ namespace AxTools.retro {
         public bool FacingRight { get { return _facingRight; } }
 
         // --- Queries ---
+        
+        /// <summary>
+        /// Is the character currently on the ground?
+        /// At least one 'foot' is on the ground.
+        /// </summary>
+        /// <returns>Returns true if grounded.</returns>
         bool IsGrounded()
         {
             bool ret = false;
@@ -118,11 +124,20 @@ namespace AxTools.retro {
 
             return ret;
         }
+
+        /// <summary>
+        /// Turn around to face the opposite direction.
+        /// </summary>
         private void Flip()
         {
             _facingRight = !_facingRight;
             transform.Rotate(new Vector3(0, 180,0));
         }
+
+        /// <summary>
+        /// Add vertical velocity to launch the character into the air.
+        /// </summary>
+        /// <param name="horizontalOverride">The horizontal speed to give the character.</param>
         private void Jump(float horizontalOverride)
         {
             if (horizontalOverride > 0 && !_facingRight) { Flip(); }
@@ -134,14 +149,28 @@ namespace AxTools.retro {
 
             _horAtJump = Input.GetAxisRaw("Horizontal");
         }
+
+        /// <summary>
+        /// A default jump, launching the character using its current horizontal velocity.
+        /// </summary>
         private void Jump()
         {
             Jump(_rb.velocity.x);
         }
+
+        /// <summary>
+        /// Knock the character back.
+        /// </summary>
+        /// <param name="damageSource">The transform of the object inflicting damage.</param>
         public void Knockback(Transform damageSource)
         {
             Knockback(this.transform.position.x - damageSource.position.x > 0);
         }
+
+        /// <summary>
+        /// Knock the character in a particular direction.
+        /// </summary>
+        /// <param name="KnockbackDirectionLeft">To knock left, true. To knock right, false.</param>
         public void Knockback(bool KnockbackDirectionLeft = true)
         {
             if (_pss) { _pss.Flash("Hurt", 0.25f, _ph.IFrameDuraiton); }
@@ -152,6 +181,10 @@ namespace AxTools.retro {
             _lateralKnockbackVelocity = _knockbackInitialVelocity.x * direction;
             _rb.velocity = new Vector2(_lateralKnockbackVelocity, _knockbackInitialVelocity.y);
         }
+
+        /// <summary>
+        /// Climb up a ladder, if one can be found.
+        /// </summary>
         private void Climb()
         {
             // Look for Ladder
@@ -185,8 +218,6 @@ namespace AxTools.retro {
                     Jump(_movementInput * _MoveSpeed);
                     _onLadder = false;
                 }
-                //Flipp
-
 
             } else
             {
@@ -202,7 +233,6 @@ namespace AxTools.retro {
             }
         }
 
-        // Start is called before the first frame update
         void Start()
         {
             // -- Get Components --
@@ -222,14 +252,8 @@ namespace AxTools.retro {
             _rb.gravityScale = _GravityModifierFalling * _jumpGravityScale;
 
             _anim.Play("Girl_Jump");
-
-            //Debug.Log("Jump Velocity: " + _jumpUpVelocity);
-    
-
         }
 
-
-        // Update is called once per frame
         void Update()
         {
             if (Time.timeScale != 0)
@@ -269,6 +293,9 @@ namespace AxTools.retro {
             }
         }
 
+        /// <summary>
+        /// Wipes update values clean, then fetches the new state.
+        /// </summary>
         void ClearAndUpdateInputs()
         {
             _jumpPressed = false;
@@ -276,10 +303,11 @@ namespace AxTools.retro {
             _verticalInput = Input.GetAxisRaw("Vertical");
             _jumpPressed = Input.GetButtonDown("Jump");
             _grounded = IsGrounded();
-            //Debug.Log(/*"JumpHeld: " + _jumpHeld +*/ " | Input: " + Input.GetButton("Jump"));
-            //if(_jumpHeld && Input.GetButton("Jump")) { _jumpHeld = true; }
         }
 
+        /// <summary>
+        /// Determine how to handle airtime.
+        /// </summary>
         void UpdateJump()
         {
             _lastJumpTime += Time.deltaTime;
@@ -307,12 +335,17 @@ namespace AxTools.retro {
             }
         }
 
+        /// <summary>
+        /// Continue processing a knockback request.
+        /// </summary>
         void UpdateKnockback()
         {
             _rb.velocity = new Vector2(_lateralKnockbackVelocity, _rb.velocity.y);
         }
 
-        // Physics update interactions
+        /// <summary>
+        /// Physics update interaction
+        /// </summary>
         private void FixedUpdate()
         {
             if(_onLadder)

@@ -5,10 +5,9 @@ namespace AxTools.retro
     [RequireComponent(typeof(PlatformerCharacter))]
     public class PlayerHealth : MonoBehaviour
     {
-        // Start is called before the first frame update
-        [SerializeField]
+        [SerializeField, Tooltip("The maximum health of the player.")]
         private int _Health = 10;
-        [SerializeField]
+        [SerializeField, Tooltip("The amount of time after taking damage that the player is invulnerable.")]
         private float _IFrameDuration = 1.5f;
         [SerializeField, Tooltip("The number of unity units to knock the character back, assuming flat ground.")]
         float KnockbackDistance = 2;
@@ -20,16 +19,13 @@ namespace AxTools.retro
 
         void Start()
         {
+            // Cache Components
             _pc = GetComponent<PlatformerCharacter>();
-
         }
 
-        // Update is called once per frame
-        void Update()
-        {
-
-        }
-
+        /// <summary>
+        /// Collision Detection
+        /// </summary>
         private void OnCollisionEnter2D(Collision2D collision)
         {
             EnemyHealth eh = collision.gameObject.GetComponent<EnemyHealth>();
@@ -40,7 +36,7 @@ namespace AxTools.retro
                 _timeLastHit = Time.time;
             }
         }
-        /// <summary>2
+        /// <summary>
         /// Deal damage to the player.
         /// </summary>
         /// <param name="damage">Damage to deal.</param>

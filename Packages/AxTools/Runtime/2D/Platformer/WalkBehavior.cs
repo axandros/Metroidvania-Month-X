@@ -1,6 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 namespace AxTools.retro
 {
@@ -11,18 +9,18 @@ namespace AxTools.retro
     {
         private Rigidbody2D rb;
         private CapsuleCollider2D bc;
-        [SerializeField]
+        [SerializeField, Tooltip("The layer Rooms are on.")]
         private LayerMask _RoomLayer;
-        [SerializeField]
+        [SerializeField, Tooltip("The layer the ground is on.")]
         private LayerMask _GroundLayer;
-        [SerializeField]
+        [SerializeField, Tooltip("The layer Enemies are in.")]
         private LayerMask _EnemyLayer;
-        [SerializeField]
+        [SerializeField, Tooltip("Draw the raytrace to determine behavior.")]
         private bool _MovementDebug = false;
 
-        [SerializeField]
+        [SerializeField, Tooltip("How many units to walk per second.")]
         private float _MoveSpeed = 1.0f;
-        [SerializeField]
+        [SerializeField, Tooltip("Does the sprite start facing left?")]
         private bool _StartFacingLeft = true;
 
         RaycastHit2D LeftFootCheck;
@@ -46,20 +44,29 @@ namespace AxTools.retro
             }
         }
 
-        // Start is called before the first frame update
         void Start()
         {
+            // Cache components
             rb = GetComponent<Rigidbody2D>();
             bc = GetComponent<CapsuleCollider2D>();
             _eh = GetComponent<EnemyHealth>();
+
+            // Subscribe to Enemy Health activation.
             _eh.OnActiveChange += OnActiveChange;
+
+            // Set our current facing.
             _facingRight = _StartFacingLeft;
+
+            // Set our initial gravity
             rb.gravityScale = 9.81f;
         }
 
+        /// <summary>
+        /// Subscribed function to handle the character becoming active or inactive.
+        /// </summary>
+        /// <param name="setActive">We we being set to active or inactive?</param>
         private void OnActiveChange(bool setActive)
         {
-            Debug.Log("OnActiveChanged Called");
             if (setActive)
             {
                 rb.gravityScale = 9.81f;
@@ -69,6 +76,7 @@ namespace AxTools.retro
                 rb.gravityScale = 0;
                 rb.velocity = Vector2.zero;
             }
+            // Turn on/off the collider.
             bc.enabled = setActive;
         }
 
@@ -76,11 +84,17 @@ namespace AxTools.retro
         {
             if (_eh.Active)
             {
+                // Gravity and grounded checks.
                 IsGrounded();   // Sets foot checks
-                bool FootCheck = !LeftFootCheck ^ !RightFootCheck;// ^ is exclusive OR, or XOR | Is only 1 foot off the platform?
+                bool FootCheck = !LeftFootCheck ^ !RightFootCheck;// ^ is exclusive OR/ XOR | Is only 1 foot off the platform?
+
+                // Walking collision checks
                 bool Wall = CheckForBlocking(_EnemyLayer | _GroundLayer); // Is there a wall in front of us?
                 bool Room = !CheckIsInRoom(); // Are we in the room?
+
                 if (_MovementDebug) { Debug.Log("Movement Check flags: " + FootCheck + ", " + Wall + ", " + Room); }
+
+                // If ny of the above are true, turn around.
                 if (FootCheck || Wall || Room)
                 {
                     Flip();
@@ -88,7 +102,6 @@ namespace AxTools.retro
             }
         }
 
-        // Update is called once per frame
         void FixedUpdate()
         {
             if (_eh.Active)
@@ -99,12 +112,15 @@ namespace AxTools.retro
             }
         }
 
+        /// <summary>
+        /// Check to see if we are grounded.
+        /// </summary>
+        /// <returns>If grounded, true.</returns>
         bool IsGrounded()
         {
             bool ret = false;
             float footOffset = bc.bounds.extents.x * 0.95f;
             float feetHeight = bc.bounds.extents.y * 1.1f;
-            //Debug.Log("Feet Height: " + feetHeight);
             float rayDistance = 0.2f;
             Vector3 pos = transform.position;
             Vector2 leftPosition = new Vector2(pos.x - footOffset, pos.y - feetHeight);
@@ -114,7 +130,7 @@ namespace AxTools.retro
 
             if (_MovementDebug)
             {
-                //Debug.Log("Running Ground Debug");  
+                // Set the color for each ray...
                 Color leftColor = LeftFootCheck ? Color.red : Color.green;
                 Color rightColor = RightFootCheck ? Color.red : Color.green;
                 //...and draw the ray in the scene view
@@ -127,6 +143,11 @@ namespace AxTools.retro
             return ret;
         }
 
+        /// <summary>
+        /// Check to see if there is an object on the given layer in front of us.
+        /// </summary>
+        /// <param name="Layers">The layer to check.</param>
+        /// <returns>Returns true if something is found, false otherwise.</returns>
         bool CheckForBlocking(LayerMask Layers)
         {
             float rayDistance = 0.2f;
@@ -166,6 +187,10 @@ namespace AxTools.retro
             return LeftHeadCheck || RightHeadCheck || LeftBodyCheck || RightBodyCheck || LeftFootCheck || RightFootCheck;
         }
 
+        /// <summary>
+        /// Check to see if we will still be in our assigned room if we continue forward.
+        /// </summary>
+        /// <returns>Returns true if we can continue, false otherwise.</returns>
         bool CheckIsInRoom()
         {
             //Debug.Log("Assigned Room: " + RoomAssigned);
@@ -209,6 +234,9 @@ namespace AxTools.retro
             return ret;
         }
 
+        /// <summary>
+        /// Change to the other direction.
+        /// </summary>
         private void Flip()
         {
             if ((Time.time - _lastFlipTime) > _flipCooldown)

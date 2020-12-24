@@ -10,16 +10,16 @@ namespace AxTools.retro
     [RequireComponent(typeof(SpriteRenderer))]
     public class EnemyHealth : MonoBehaviour
     {
-        [SerializeField]
+        [SerializeField, Tooltip("The maximum health of this enemy.")]
         private int _Health = 1;
-        [SerializeField]
+        [SerializeField, Tooltip("How much damage this enemy deals when colliding with the player.")]
         private int _collisionDamage = 1;
 
         private int _currentHealth;
         public int HitPoints { get { return _Health; } }
         public int CollisionDamage { get { return _collisionDamage; } }
 
-        [SerializeField]
+        [SerializeField, Tooltip("The room the enemy is locked to.")]
         private Room _roomAssigned;
         public Room RoomAssigned { get { return _roomAssigned; } set { _roomAssigned = value; } }
 
@@ -46,7 +46,14 @@ namespace AxTools.retro
             }
         }
 
+        /// <summary>
+        /// A delegate that triggers when the enemy becomes active or inactive.
+        /// </summary>
+        /// <param name="setActive">The state, on or off.</param>
         public delegate void ActivationDelegate(bool setActive);
+        /// <summary>
+        /// The delegate to subscribe to for activation changes.
+        /// </summary>
         public ActivationDelegate OnActiveChange;
 
         private Animator _anim;
@@ -57,10 +64,13 @@ namespace AxTools.retro
 
         private void Start()
         {
+            // Cache components
             _anim = GetComponent<Animator>();
             _rb = GetComponent<Rigidbody2D>();
             _cc = GetComponent<CapsuleCollider2D>();
             _sr = GetComponent<SpriteRenderer>();
+
+            // Set the current state.
             _currentHealth = _Health;
         }
 
